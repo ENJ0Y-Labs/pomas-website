@@ -23,7 +23,7 @@ Recommended first deployment: Netlify or Cloudflare Pages.
 - [ ] Test every download link and confirm it points to an official release asset.
 - [ ] Verify the displayed checksum matches the release asset digest.
 - [ ] Submit a test feedback draft and confirm it opens the correct GitHub repository, report title, type and prefilled details. Do not create a noisy public issue unless intended.
-- [ ] Confirm the issue tracker is enabled and the expected labels exist: `bug`, `enhancement`, `support`, `feedback`.
+- [ ] Confirm the application issue tracker is enabled. The form prefixes issue titles by report type and includes the selected type in the issue body; maintainers can apply repository labels during triage.
 - [ ] Check that no personal access token or private farm information is present in the frontend bundle.
 - [ ] Verify all navigation links, footer links and external links.
 - [ ] Test the site at 320px, 375px, 768px, 1024px and 1440px widths.
