@@ -37,11 +37,11 @@ const featureGroups = [
 ];
 
 const docs = [
-  { id: "getting-started", title: "Getting started", text: "Install Pomas, create the first farm account and set up the basic farm records.", tag: "START HERE" },
-  { id: "daily-records", title: "Daily records", text: "Understand how batch records, daily operations, feed, mortality and health history fit together.", tag: "OPERATIONS" },
-  { id: "production", title: "Production and sales", text: "Learn the Layer egg workflow and the Broiler/Turkey weight and bird-sales workflows.", tag: "PRODUCTION" },
-  { id: "backup", title: "Backup and restore", text: "Protect the local database with validated backups and a deliberate restore process.", tag: "DATA SAFETY" },
-  { id: "troubleshooting", title: "Troubleshooting", text: "Find practical checks for installation, startup, updates and common application problems.", tag: "HELP" }
+  { id: "getting-started", title: "Getting started", text: "Install Pomas, create the first farm account and set up the basic farm records.", tag: "START HERE", href: `${REPO_URL}/blob/main/README.md` },
+  { id: "daily-records", title: "Historical imports", text: "Understand supported CSV templates and how historical production records are imported.", tag: "OPERATIONS", href: `${REPO_URL}/blob/main/docs/csv-bulk-import.md` },
+  { id: "production", title: "Farm calculations", text: "Read how key production, population and cost metrics are derived from farm records.", tag: "PRODUCTION", href: `${REPO_URL}/blob/main/docs/calculations.md` },
+  { id: "backup", title: "Backup and restore", text: "Protect the local database with validated backups and a deliberate restore process.", tag: "DATA SAFETY", href: `${REPO_URL}/blob/main/docs/backup-restore.md` },
+  { id: "troubleshooting", title: "Development and setup", text: "Find environment requirements, setup steps and technical troubleshooting guidance.", tag: "HELP", href: `${REPO_URL}/blob/main/docs/development.md` }
 ];
 
 function Icon({ name, size = 20 }) {
@@ -151,6 +151,7 @@ function Downloads() {
           </div>
           {installer ? <a className="button button-gold" href={installer.browser_download_url}><Icon name="download"/> Download installer <span className="button-size">{(installer.size / 1024 / 1024).toFixed(0)} MB</span></a> :
             <a className="button button-gold" href={latest?.html_url || `${REPO_URL}/releases`}><Icon name="external"/> View release</a>}
+          {installer?.digest && <div className="asset-digest"><span>SHA-256 CHECKSUM</span><code>{installer.digest.replace(/^sha256:/, "")}</code></div>}
           <p className="download-note">The installer includes the application and its bundled Java runtime. No separate Java installation is required.</p>
         </div>
         <div className="download-art"><div className="download-art-orbit orbit-one"/><div className="download-art-orbit orbit-two"/><div className="download-laptop"><div className="download-screen"><img src="/pomas-logo.png" alt="Pomas logo"/><strong>Pomas</strong><span>POULTRY MANAGEMENT</span></div><div className="download-base"/></div><span className="download-art-tag">WINDOWS DESKTOP</span></div>
@@ -177,12 +178,12 @@ function Feedback() {
   const [kind, setKind] = useState("bug");
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
-  const [version, setVersion] = useState("1.0.4");
+  const [version, setVersion] = useState("");
   const [email, setEmail] = useState("");
   const [os, setOs] = useState("Windows 11");
   const issueUrl = useMemo(() => {
-    const labels = { bug: "bug", feature: "enhancement", support: "support", feedback: "feedback" };
-    const issueTitle = title.trim() || ({ bug: "Bug report", feature: "Feature request", support: "Support request", feedback: "General feedback" }[kind]);
+    const prefixes = { bug: "[BUG]", feature: "[FEATURE REQUEST]", support: "[SUPPORT]", feedback: "[FEEDBACK]" };
+    const issueTitle = `${prefixes[kind]} ${title.trim() || ({ bug: "Bug report", feature: "Feature request", support: "Support request", feedback: "General feedback" }[kind])}`;
     const body = [
       `## Type\n${kind}`,
       `## Pomas version\n${version || "Not provided"}`,
@@ -190,7 +191,7 @@ function Feedback() {
       `## Description\n${details || "Please describe the issue or suggestion."}`,
       email ? `## Contact email\n${email}` : ""
     ].filter(Boolean).join("\n\n");
-    return `${REPO_URL}/issues/new?title=${encodeURIComponent(issueTitle)}&labels=${encodeURIComponent(labels[kind])}&body=${encodeURIComponent(body)}`;
+    return `${REPO_URL}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(body)}`;
   }, [kind, title, details, version, email, os]);
 
   return <section className="section feedback-section" id="feedback">
@@ -287,7 +288,7 @@ function App() {
 
       <Downloads/>
 
-      <section className="section docs-section" id="documentation"><div className="section-inner"><SectionHeading eyebrow="POMAS KNOWLEDGE BASE" title="The help you need, close at hand." text="Practical guidance for installing the application, keeping records and protecting farm data."/><div className="docs-grid">{docs.map((item,i) => <a className="doc-card" href={`${REPO_URL}/tree/main/docs`} target="_blank" rel="noreferrer" key={item.id}><span className="doc-tag">{item.tag}</span><span className="doc-number">0{i+1}</span><h3>{item.title}</h3><p>{item.text}</p><span className="doc-link">Read documentation <Icon name="arrow" size={15}/></span></a>)}</div><div className="docs-bottom"><span>Technical documentation is maintained alongside the application source.</span><a className="text-link" href={`${REPO_URL}/tree/main/docs`} target="_blank" rel="noreferrer">Browse all documentation <Icon name="external" size={15}/></a></div></div></section>
+      <section className="section docs-section" id="documentation"><div className="section-inner"><SectionHeading eyebrow="POMAS KNOWLEDGE BASE" title="The help you need, close at hand." text="Practical guidance for installing the application, keeping records and protecting farm data."/><div className="docs-grid">{docs.map((item,i) => <a className="doc-card" href={item.href} target="_blank" rel="noreferrer" key={item.id}><span className="doc-tag">{item.tag}</span><span className="doc-number">0{i+1}</span><h3>{item.title}</h3><p>{item.text}</p><span className="doc-link">Read documentation <Icon name="arrow" size={15}/></span></a>)}</div><div className="docs-bottom"><span>Technical documentation is maintained alongside the application source.</span><a className="text-link" href={`${REPO_URL}/tree/main/docs`} target="_blank" rel="noreferrer">Browse all documentation <Icon name="external" size={15}/></a></div></div></section>
 
       <section className="section faq-section"><div className="section-inner faq-layout"><div><span className="eyebrow">GOOD TO KNOW</span><h2>Questions, <em>answered.</em></h2><p>Some practical details before you install.</p></div><div className="faq-list">{faqs.map(([question,answer],i) => <article className={activeFaq === i ? "faq-item expanded" : "faq-item"} key={question}><button type="button" onClick={() => setActiveFaq(activeFaq === i ? -1 : i)} aria-expanded={activeFaq === i}><span>{question}</span><b>{activeFaq === i ? "−" : "+"}</b></button>{activeFaq === i && <p>{answer}</p>}</article>)}</div></div></section>
 
