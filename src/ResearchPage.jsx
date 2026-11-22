@@ -42,7 +42,7 @@ export default function ResearchPage() {
       
       <div className="flex flex-col gap-3">
       <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-surface-container-high">
-      <img className="w-full h-full object-cover" data-alt="A focused agricultural poultry supervisor wearing work gear in a modern ventilated poultry barn in Nigeria, reviewing printed flock tracking sheets and a digital tablet alongside pens of healthy broiler birds under natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6lOMvBO9xfvW3vDfvuIMHe6iDEsxF_012GusBY68tuPDkz7aLPigKs_dEtkFcQcDtpLZUZHvmgm-wgHWegAXkRz3oUhehZKLRQl4WyfU9kfl6_cyKzlrsQS9PpjWUM8RYNP5ZC4Ks6dlg2W87EB0PmgHt8_GSgrCAcIqnXDESeiF6nVXPBsES262goEE51DCKXyeojB2wKPxZrw4BBWkfX5vrhrUHmV-9VT94zirK" />
+      <img className="w-full h-full object-cover" alt="A focused agricultural poultry supervisor wearing work gear in a modern ventilated poultry barn in Nigeria, reviewing printed flock tracking sheets and a digital tablet alongside pens of healthy broiler birds under natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6lOMvBO9xfvW3vDfvuIMHe6iDEsxF_012GusBY68tuPDkz7aLPigKs_dEtkFcQcDtpLZUZHvmgm-wgHWegAXkRz3oUhehZKLRQl4WyfU9kfl6_cyKzlrsQS9PpjWUM8RYNP5ZC4Ks6dlg2W87EB0PmgHt8_GSgrCAcIqnXDESeiF6nVXPBsES262goEE51DCKXyeojB2wKPxZrw4BBWkfX5vrhrUHmV-9VT94zirK" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
       </div>
       <p className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 px-1">
@@ -95,7 +95,7 @@ export default function ResearchPage() {
       </div>
       <div className="lg:col-span-6">
       <div className="relative rounded-2xl overflow-hidden shadow-lg bg-surface">
-      <img className="w-full h-96 object-cover" data-alt="Close up view of hands holding a traditional weathered paper poultry log notebook with pencil entries for bird mortality, bag feed counts, and daily egg crates inside an active poultry pen with birds in soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5ldEHNBA3_KovVEfJFqCOekJpnP8c_XthpJBRzadIjPNlQSB2A0E-UUCCy9W51XpSn7NZEOsRp6UqTnwJwSrg3MBXZTYN55MNLIl58QI4P882MjkUn6iPStrS9UuNAeXbPb_SMq-CQGBKFmTG-DtH5zekFLIph1kCAVhw5qId666ifCpxCGs_yer5gKv4_H3JaI37XVWRZfa-MSKMHJhFY6FFYd-eAhYVsGJUaiu" />
+      <img className="w-full h-96 object-cover" alt="Close up view of hands holding a traditional weathered paper poultry log notebook with pencil entries for bird mortality, bag feed counts, and daily egg crates inside an active poultry pen with birds in soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5ldEHNBA3_KovVEfJFqCOekJpnP8c_XthpJBRzadIjPNlQSB2A0E-UUCCy9W51XpSn7NZEOsRp6UqTnwJwSrg3MBXZTYN55MNLIl58QI4P882MjkUn6iPStrS9UuNAeXbPb_SMq-CQGBKFmTG-DtH5zekFLIph1kCAVhw5qId666ifCpxCGs_yer5gKv4_H3JaI37XVWRZfa-MSKMHJhFY6FFYd-eAhYVsGJUaiu" />
       <div className="p-6 bg-surface flex flex-col gap-2">
       <div className="font-headline-sm text-headline-sm text-on-surface">The paper-to-decision gap</div>
       <p className="font-body-md text-body-md text-on-surface-variant">
