@@ -1,0 +1,657 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>POMAS - Poultry Management System</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary": "#7b5800", "on-surface-variant": "#41484b", "tertiary-fixed-dim": "#4edea3", "tertiary": "#003925", "surface-container-low": "#e5f6fd", "primary-fixed-dim": "#9ecee0", "on-secondary-fixed": "#271900", "on-error": "#ffffff", "inverse-primary": "#9ecee0", "primary-container": "#1a4d5c", "surface-tint": "#356574", "primary-fixed": "#baeafc", "on-tertiary-fixed-variant": "#005236", "on-primary-fixed": "#001f28", "secondary-container": "#fdbb24", "secondary-fixed-dim": "#fdbb24", "outline": "#71787c", "surface": "#f2fbff", "on-primary": "#ffffff", "on-background": "#0e1e23", "surface-container-lowest": "#ffffff", "secondary-fixed": "#ffdea5", "tertiary-fixed": "#6ffbbe", "error-container": "#ffdad6", "on-error-container": "#93000a", "tertiary-container": "#005237", "surface-variant": "#d4e5ec", "on-tertiary": "#ffffff", "error": "#ba1a1a", "surface-dim": "#ccdde4", "background": "#f2fbff", "outline-variant": "#c0c8cb", "on-tertiary-fixed": "#002113", "surface-bright": "#f2fbff", "on-surface": "#0e1e23", "surface-container": "#e0f1f8", "surface-container-high": "#daebf2", "inverse-on-surface": "#e2f4fb", "on-primary-container": "#8dbdce", "on-secondary-container": "#6c4d00", "on-secondary-fixed-variant": "#5d4200", "on-primary-fixed-variant": "#1a4d5c", "surface-container-highest": "#d4e5ec", "inverse-surface": "#233338", "primary": "#003643", "on-tertiary-container": "#37cd93", "on-secondary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1rem", "gutter-compact": "0.75rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "space-md": "0.75rem", "space-lg": "1.25rem", "margin": "1.75rem", "space-xl": "1.75rem" }, "fontFamily": { "headline-md": ["Inter"], "label-caps": ["Inter"], "micro-eyebrow": ["Inter"], "metric-kpi": ["Inter"], "body-lg": ["Inter"], "headline-hero": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Inter"], "headline-hero-mobile": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["11px", { "lineHeight": "15px", "letterSpacing": "0.08em", "fontWeight": "700" }], "micro-eyebrow": ["10px", { "lineHeight": "13px", "letterSpacing": "0.14em", "fontWeight": "800" }], "metric-kpi": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-hero": ["42px", { "lineHeight": "46px", "letterSpacing": "-0.04em", "fontWeight": "800" }], "headline-lg": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "17px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "19px", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.03em", "fontWeight": "800" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between" style="background-color: rgb(242, 251, 255); background-image: radial-gradient(circle at 50% 0%, rgba(26, 77, 92, 0.08) 0%, transparent 60%), linear-gradient(to right, rgba(26, 77, 92, 0.04) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.04) 1px, transparent 1px); background-size: 100% 100%, 32px 32px, 32px 32px;"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0"><div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-secondary-container shadow-sm"><span class="material-symbols-outlined text-[24px]">egg</span></div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">POMAS</span><span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-micro-eyebrow text-micro-eyebrow uppercase">Research Stage</span></div><span class="hidden sm:block font-body-sm text-body-sm text-on-surface-variant font-normal leading-tight">Poultry Management System</span></div></div><nav class="hidden lg:flex items-center gap-1" data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" class="px-3 py-2 transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" data-path="about-pomas" href="#">About POMAS</a><a class="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="our-vision" href="#">Our Vision</a><a class="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="research-topics" href="#">Research Topics</a><a class="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="our-approach" href="#">Our Approach</a><a class="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="faq" href="#">FAQ</a></nav><div class="flex items-center gap-3 shrink-0"><a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-[0_1px_8px_rgba(0,0,0,0.06)]" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">assignment</span><span>Take the Farmer Survey</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button aria-label="Toggle Mobile Menu" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div></header><main class="w-full pt-20 bg-surface flex-grow"><div class="flex flex-col w-full">
+<!-- SECTION 1: HERO -->
+<section class="w-full py-12 md:py-20 lg:py-24 bg-surface relative"><div class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(to right, rgba(26, 77, 92, 0.07) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.07) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(75% 70% at 50% 30%, rgb(0, 0, 0) 30%, transparent 85%);"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<!-- Hero Text Column -->
+<div class="flex flex-col items-start gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-caps text-label-caps uppercase tracking-wider shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span>Early Research · Validating With Farmers</span>
+</div>
+<h1 class="font-headline-hero text-headline-hero text-on-surface tracking-tight">
+            Better understanding. Better decisions. Stronger poultry farms.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            We are exploring how technology can help poultry farmers understand their daily farm operations, production rhythms, and finances. But before we write a single line of software, we are beginning conversations with the people who manage these farms every day.
+          </p>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank">
+<span>Take the 5-Minute Farmer Survey</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-primary font-headline-sm text-headline-sm hover:bg-surface-container transition-colors" href="#approach-vision">
+<span>Explore Our Approach &amp; Vision</span>
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</a>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>No sales pitches, no login required, and no software subscriptions.</span>
+</div>
+</div>
+<!-- Hero Media Column -->
+<div class="flex flex-col gap-3">
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A focused agricultural poultry supervisor wearing work gear in a modern ventilated poultry barn in Nigeria, reviewing printed flock tracking sheets and a digital tablet alongside pens of healthy broiler birds under natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6lOMvBO9xfvW3vDfvuIMHe6iDEsxF_012GusBY68tuPDkz7aLPigKs_dEtkFcQcDtpLZUZHvmgm-wgHWegAXkRz3oUhehZKLRQl4WyfU9kfl6_cyKzlrsQS9PpjWUM8RYNP5ZC4Ks6dlg2W87EB0PmgHt8_GSgrCAcIqnXDESeiF6nVXPBsES262goEE51DCKXyeojB2wKPxZrw4BBWkfX5vrhrUHmV-9VT94zirK">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">info</span>
+<span>Starting with real poultry management realities across commercial and smallholder pens.</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: THE REALITY OF POULTRY FARMING -->
+<section class="w-full py-16 md:py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 self-start px-2.5 py-1 rounded bg-surface-container-highest text-primary font-micro-eyebrow text-micro-eyebrow uppercase">
+            Field Reality
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            Running a poultry farm involves more than raising birds.
+          </h2>
+<div class="flex flex-col gap-4 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+              Daily poultry farm management brings countless interconnected decisions: unpredictable feed price spikes, sudden mortality fluctuations, egg production drop-offs, strict medication withdrawals, and razor-thin margins.
+            </p>
+<p>
+              Right now, poultry managers balance these complex operational dynamics using paper spiral notebooks, fragmented WhatsApp voice notes, bespoke Excel spreadsheets, or mental calculations.
+            </p>
+<p>
+              We are investigating how farmers currently handle these critical operational workflows on the ground—and exploring whether technology can genuinely illuminate patterns without creating an exhausting second job of data entry.
+            </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+<div class="p-4 rounded-xl bg-surface shadow-sm">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold block mb-1">Cost Weight</span>
+<span class="font-metric-kpi text-metric-kpi text-on-surface font-bold">70%+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Operational budget tied to feed supplies</span>
+</div>
+<div class="p-4 rounded-xl bg-surface shadow-sm">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold block mb-1">Time Margin</span>
+<span class="font-metric-kpi text-metric-kpi text-on-surface font-bold">&lt; 24h</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">To catch early signs of flock infection</span>
+</div>
+<div class="p-4 rounded-xl bg-surface shadow-sm col-span-2 sm:col-span-1">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold block mb-1">Record Habit</span>
+<span class="font-metric-kpi text-metric-kpi text-on-surface font-bold">Paper</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Primary medium for daily pen logs</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="relative rounded-2xl overflow-hidden shadow-lg bg-surface">
+<img class="w-full h-96 object-cover" data-alt="Close up view of hands holding a traditional weathered paper poultry log notebook with pencil entries for bird mortality, bag feed counts, and daily egg crates inside an active poultry pen with birds in soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5ldEHNBA3_KovVEfJFqCOekJpnP8c_XthpJBRzadIjPNlQSB2A0E-UUCCy9W51XpSn7NZEOsRp6UqTnwJwSrg3MBXZTYN55MNLIl58QI4P882MjkUn6iPStrS9UuNAeXbPb_SMq-CQGBKFmTG-DtH5zekFLIph1kCAVhw5qId666ifCpxCGs_yer5gKv4_H3JaI37XVWRZfa-MSKMHJhFY6FFYd-eAhYVsGJUaiu">
+<div class="p-6 bg-surface flex flex-col gap-2">
+<div class="font-headline-sm text-headline-sm text-on-surface">The paper-to-decision gap</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Notes written on feed sacks or clipboard logs often fail to reach farm owners in time to adjust feed conversion ratios or prevent batch losses.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: AREAS WE'RE INVESTIGATING -->
+<section class="w-full py-16 md:py-24 bg-surface relative" id="research-areas"><div class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(to right, rgba(26, 77, 92, 0.05) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.05) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(80% 65% at 50% 40%, rgb(0, 0, 0) 20%, transparent 90%);"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12 relative">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-3 max-w-2xl">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-wider font-bold">Inquiry Scope</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">
+            Six operational areas we are investigating
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Click any card to review the core field questions we ask during early farm interviews.
+          </p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">touch_app</span>
+<span>Expandable Discovery Modules</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 01</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Record Keeping</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> How do farm owners and pen supervisors record daily feed, mortality, and egg counts?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Bridging the gap between paper sheets and timely decisions.
+          </div>
+<button aria-controls="panel-topic-1" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-1">
+<p>• Who physically writes down counts at the pen door each evening?</p>
+<p>• How long does it take for dead bird logs to reach the supervisor?</p>
+<p>• How often are handwritten sheets lost, smeared, or miscalculated?</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 02</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Feed &amp; Cost Tracking</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> How is feed consumption tracked per batch, and how do price swings affect margin?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Feed accounts for 70%+ of operational expenses in poultry.
+          </div>
+<button aria-controls="panel-topic-2" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-2">
+<p>• Do you weigh leftovers daily, or log entire bags when opened?</p>
+<p>• When maize or concentrate prices jump 15%, how quickly do you adjust feed rations?</p>
+<p>• How do you reconcile commercial feed vs on-farm custom milling?</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 03</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Mortality &amp; Early Signals</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> What early indicators or pen-level symptoms alert managers before losses spread?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Timely action prevents catastrophic disease spread.
+          </div>
+<button aria-controls="panel-topic-3" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-3">
+<p>• At what percentage threshold do you sound an alarm on pen mortality?</p>
+<p>• Do you notice changes in water intake 48 hours before mortality strikes?</p>
+<p>• How are necropsy findings documented and shared across team shifts?</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">vaccines</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 04</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Health &amp; Medication Schedules</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> How are vaccination protocols, withdrawal periods, and vet visits scheduled and logged?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Compliance protects flock health and biosecurity.
+          </div>
+<button aria-controls="panel-topic-4" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-4">
+<p>• How do pen workers remember Gumboro or Lasota vaccination dates?</p>
+<p>• How do you track antibiotic withdrawal before sending broilers to market?</p>
+<p>• How do external consulting veterinarians review past pen records?</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 05</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Production &amp; Weight Curves</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> How do layer farmers track laying percentages, and how do broiler farmers calculate FCR?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Benchmarking reveals performance dips before they hurt revenue.
+          </div>
+<button aria-controls="panel-topic-5" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-5">
+<p>• How often do you sample-weigh broilers (weekly, fortnightly)?</p>
+<p>• What hen-day percentage triggers a culling evaluation for layers?</p>
+<p>• Do you compare batch growth against breeder breed standard curves?</p>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<span class="font-micro-eyebrow text-micro-eyebrow uppercase text-on-surface-variant px-2 py-0.5 rounded bg-surface-container">Topic 06</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Sales, Expenses &amp; Batch Profit</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Research Question:</span> How do managers determine if a finished batch was truly profitable after all input costs?
+          </div>
+<div class="p-3.5 rounded-xl bg-surface font-body-sm text-body-sm text-on-surface-variant mb-4">
+<span class="font-bold text-primary block mb-0.5">Why it matters:</span>
+            Clear financial visibility replaces guesswork at harvest.
+          </div>
+<button aria-controls="panel-topic-6" aria-expanded="false" class="investigation-trigger mt-auto inline-flex items-center justify-between w-full pt-3 font-headline-sm text-headline-sm text-primary hover:text-secondary transition-colors" type="button">
+<span>Interview Questions</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" id="panel-topic-6">
+<p>• Do you factor brooding fuel, electricity, and litter bedding into cost-per-kg?</p>
+<p>• How are egg breakages and unsellable peewee eggs factored into crate revenue?</p>
+<p>• How long after a batch finishes do you know the final net profit margin?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: THE POMAS VISION -->
+<section class="w-full py-16 md:py-24 bg-surface-container-high" id="approach-vision">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-wider font-bold">Research Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            Farm records should help farmers understand more than what happened yesterday.
+          </h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
+<p>
+              Agritech software often fails because it is engineered inside air-conditioned offices by people who have never shoveled chicken litter or tried to tap a smartphone screen while wearing nitrile gloves in the midday heat.
+            </p>
+<p>
+              Rather than promoting a bloated "all-in-one software platform," we frame our vision around open, humble inquiry. We are validating whether focused digital clarity can solve real headaches without multiplying administrative chores.
+            </p>
+</div>
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">lightbulb</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">No Feature Promises</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Every concept here is a research hypothesis subject to farmer scrutiny. If poultry farmers tell us an idea adds zero value, we drop it.
+              </p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="px-2 py-1 font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">
+            Questions we are exploring for the future of poultry technology
+          </div>
+<!-- Hypothesis Cards -->
+<div class="space-y-3">
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<span class="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q1</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+                  Can pen-side record keeping be streamlined so it doesn't burden farm hands?
+                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Investigating single-tap tally counters, voice notes in local dialects, or optical scanning of physical clipboards to eliminate manual double-entry.
+                </p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<span class="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q2</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+                  Can early production dips and feed anomalies be flagged automatically?
+                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Exploring lightweight statistical thresholds that notify managers of water drops or consumption slows 24-48 hours before visible mortality spikes occur.
+                </p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<span class="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q3</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+                  How can batch-by-batch feed conversion and operational costs be visible in real time?
+                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Evaluating methods to calculate live cost-per-kg of live bird or cost-per-crate of eggs as feed prices change week-to-week.
+                </p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<span class="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q4</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+                  Can layer production curves be tracked simply to forecast feed needs and culling?
+                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Understanding how flock age correlates with shell quality and crate output to plan timely spent-hen sales before birds consume more than they produce.
+                </p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
+<span class="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q5</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+                  What lightweight tools actually serve farms with intermittent internet connectivity?
+                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Investigating offline-first data persistence, lightweight SMS summaries, or low-bandwidth sync architectures that thrive in rural peri-urban areas.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: OUR APPROACH (Listen -> Learn -> Build) -->
+<section class="w-full py-16 md:py-24 bg-surface" id="our-approach">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto gap-3">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-wider font-bold">Field-Driven Methodology</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">
+          Our Approach: Listen → Learn → Build
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          We reverse the classic software trap. We do not invent solutions in search of problems; we document problems to determine if solutions are justified.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Stage 1 -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-8 relative shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-hero text-headline-hero text-primary/20 font-extrabold">01</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps uppercase font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Active Stage
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Listen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Conducting early conversations and structured surveys with poultry farmers across commercial and smallholder operations to understand day-to-day operational pain points.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-2 text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">record_voice_over</span>
+<span>Surveys &amp; Farm Visits</span>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-8 relative shadow-sm opacity-90">
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-hero text-headline-hero text-on-surface-variant/20 font-extrabold">02</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase">
+              Upcoming
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Learn</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Synthesizing feedback to identify recurring operational bottlenecks, evaluate financial impact, and isolate problems genuinely worth solving before committing engineering effort.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-2 text-on-surface-variant font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Pattern Synthesis</span>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-8 relative shadow-sm opacity-80">
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-hero text-headline-hero text-on-surface-variant/20 font-extrabold">03</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase">
+              Future
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Build</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Designing and iteratively testing practical, pen-side tools based on real field evidence, farmer feedback loops, and measurable return on investment.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-2 text-on-surface-variant font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span>Iterative Prototypes</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: ABOUT POMAS (Grounded, Truthful Origin) -->
+<section class="w-full py-16 md:py-24 bg-surface-container-low" id="about-pomas">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 self-start px-2.5 py-1 rounded bg-surface-container-highest text-primary font-micro-eyebrow text-micro-eyebrow uppercase">
+            Origin &amp; Mandate
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            Built on listening, not tech assumptions.
+          </h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4 leading-relaxed">
+<p>
+              POMAS (Poultry Management System) began from a simple, practical realization: poultry farming is one of the most operationally demanding businesses in agriculture, yet most digital tools are either too complex, too expensive, or built without understanding the dust and pace of actual farm pens.
+            </p>
+<p>
+              We started this initiative to investigate poultry farm management workflows, listen directly to farm owners, managers, and hands, and determine what technology—if any—would actually provide genuine relief and clarity.
+            </p>
+<p>
+              We are currently in the initial validation phase, collecting early responses from poultry operators. We do not sell subscriptions, we do not claim nationwide validation, and we are taking the time to listen before deciding what to build.
+            </p>
+</div>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 text-primary font-headline-sm text-headline-sm hover:text-secondary transition-colors" href="mailto:research@pomas.ng">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span>Contact the Research Team: research@pomas.ng</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="p-8 rounded-3xl bg-surface shadow-md flex flex-col gap-6">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">Research Governance</span>
+<h3 class="font-headline-md text-headline-md text-primary">Transparent Research Commitment</h3>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>No Commercial Push:</strong> We are researchers and engineers, not salespeople pushing enterprise SaaS agreements.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Confidential Feedback:</strong> Your specific operational numbers, bird counts, and veterinary notes are never sold or shared.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Direct Co-Design:</strong> Farmers who participate have early direct input into wireframes and feature validation.</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container font-body-sm text-body-sm text-on-surface-variant">
+              Have questions about how we handle research insights? Contact us anytime at <span class="text-primary font-semibold">research@pomas.ng</span>.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: FARMER RESEARCH & SURVEY -->
+<section class="w-full py-16 md:py-24 bg-primary text-on-primary" id="farmer-survey">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-secondary-container font-label-caps text-label-caps uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>Community Collaboration</span>
+</div>
+<h2 class="font-headline-hero text-headline-hero text-on-primary tracking-tight">
+          Help shape what we build next.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl">
+          We are currently speaking with poultry farmers to learn how they manage their flocks, what issues cause the most headaches, and what they wish was simpler. Whether you run a 200-bird pen or a 20,000-bird commercial operation, your input is invaluable.
+        </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full my-4">
+<div class="p-4 rounded-xl bg-primary-container text-center flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[24px]">timer</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">5 Minutes</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">Quick online questionnaire</span>
+</div>
+<div class="p-4 rounded-xl bg-primary-container text-center flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[24px]">agriculture</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">Real Operators</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">Owners, managers &amp; hands</span>
+</div>
+<div class="p-4 rounded-xl bg-primary-container text-center flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[24px]">call</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">Optional Follow-up</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">15-min direct conversation</span>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-secondary-container text-on-secondary-container font-headline-md text-headline-md hover:bg-secondary-fixed transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-secondary-fixed" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank">
+<span>Take the Farmer Survey</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</a>
+<span class="font-body-sm text-body-sm text-on-primary-container">
+          Opens in Google Forms. No sign-in or payment details required.
+        </span>
+</div>
+</div>
+</section>
+<!-- SECTION 8: FREQUENTLY ASKED QUESTIONS -->
+<section class="w-full py-16 md:py-24 bg-surface" id="faq">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
+<div class="flex flex-col items-center text-center gap-3">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-wider font-bold">Clarity &amp; Transparency</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Frequently Asked Questions</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Honest answers about the POMAS research stage, our objectives, and your data.
+        </p>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-1" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>What is POMAS?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-1">
+            POMAS is an early-stage agritech research initiative focused on understanding poultry farm operations and exploring practical technology solutions. We are currently in the problem discovery stage.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-2" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>Is POMAS available to use or download?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-2">
+            No. POMAS is not currently an available software product, and we are not accepting registrations, downloads, or payments. We are actively conducting farmer research first.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-3" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>Who should participate in the survey?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-3">
+            Any poultry farm owner, manager, supervisor, or farm hand working with layers, broilers, breeders, or mixed flocks in Nigeria or similar agricultural markets.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-4" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>How long does participation take?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-4">
+            The initial online survey takes approximately 5 minutes. If you are open to sharing deeper insights, there is an optional 15-minute follow-up conversation.
+          </div>
+</div>
+<!-- FAQ 5 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-5" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>How will my survey responses and privacy be handled?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-5">
+            Responses submitted through Google Forms are collected solely for exploratory research by the POMAS initiative. Individual farm details, names, or contact numbers are kept strictly confidential and will never be sold or shared with commercial third parties. They are used exclusively to understand industry challenges.
+          </div>
+</div>
+<!-- FAQ 6 -->
+<div class="rounded-2xl bg-surface-container-low transition-all">
+<button aria-controls="faq-answer-6" aria-expanded="false" class="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+<span>Will POMAS cost money in the future?</span>
+<span class="material-symbols-outlined transition-transform duration-200 trigger-icon">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" id="faq-answer-6">
+            Because we are still validating whether and what to build, no pricing model exists. Any future tools will be evaluated in collaboration with farmers to ensure practical affordability.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Client-side Interactive Behavior for Accessible Expandables -->
+<script>
+    (function () {
+      // Setup Investigation Card Expandables
+      const investigationTriggers = document.querySelectorAll('.investigation-trigger');
+      investigationTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const targetId = trigger.getAttribute('aria-controls');
+          const panel = document.getElementById(targetId);
+          const icon = trigger.querySelector('.trigger-icon');
+
+          trigger.setAttribute('aria-expanded', !isExpanded);
+          if (panel) {
+            panel.classList.toggle('hidden');
+          }
+          if (icon) {
+            icon.textContent = isExpanded ? 'expand_more' : 'expand_less';
+          }
+        });
+      });
+
+      // Setup FAQ Accordion Expandables
+      const faqTriggers = document.querySelectorAll('.faq-accordion-trigger');
+      faqTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const targetId = trigger.getAttribute('aria-controls');
+          const panel = document.getElementById(targetId);
+          const icon = trigger.querySelector('.trigger-icon');
+
+          trigger.setAttribute('aria-expanded', !isExpanded);
+          if (panel) {
+            panel.classList.toggle('hidden');
+          }
+          if (icon) {
+            icon.textContent = isExpanded ? 'expand_more' : 'expand_less';
+          }
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-16 shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-6 py-12 flex flex-col gap-10"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"><div class="lg:col-span-2 flex flex-col gap-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-secondary-container"><span class="material-symbols-outlined text-[20px]">egg</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary font-bold">POMAS</span><span class="font-body-sm text-body-sm text-on-surface-variant">Poultry Management System</span></div></div><div class="inline-flex items-center gap-2 self-start px-2 py-1 rounded-lg bg-surface-container text-secondary font-label-caps text-label-caps uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>Early Research Stage</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">An early-stage Nigerian agritech research initiative investigating practical poultry farm management workflows and records. We are listening and collecting early feedback before building software.</p></div><div class="flex flex-col gap-3"><span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold">Initiative</span><ul class="flex flex-col gap-2 font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-pomas" href="#">About POMAS</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="our-vision" href="#">Our Vision</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="our-approach" href="#">Our Approach</a></ul></div><div class="flex flex-col gap-3"><span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold">Research</span><ul class="flex flex-col gap-2 font-body-sm text-body-sm"><a class="text-secondary font-semibold hover:text-on-surface transition-colors" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank">5-Min Survey</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="research-topics" href="#">Areas We're Exploring</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a></ul></div><div class="flex flex-col gap-3"><span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold">Governance &amp; Contact</span><ul class="flex flex-col gap-2 font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="mailto:research@pomas.ng">research@pomas.ng</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-notice" href="#">Privacy Notice</a></ul></div></div><div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-on-surface-variant"><p class="text-center sm:text-left">Survey data is handled transparently through Google Forms. No background trackers, cookies, or accounts required.</p><p class="text-center sm:text-right">© 2025 POMAS Research Initiative. All rights reserved.</p></div></div></footer>
+
+</body></html>
