@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const iconGlyphs = {"assignment":"▤","person":"●","open_in_new":"↗","arrow_downward":"↓","verified_user":"✓","info":"i","touch_app":"⌁","edit_note":"✎","shopping_bag":"▱","warning":"!","vaccines":"✚","trending_up":"↗","payments":"₦","lightbulb":"✦","record_voice_over":"◖","analytics":"▥","terminal":"⌘","mail":"✉","check_circle":"✓","timer":"◷","agriculture":"⌂","call":"☎","arrow_forward":"→","expand_less":"⌃","expand_more":"⌄","close":"×","menu":"☰"};
 
@@ -11,11 +11,32 @@ export default function ResearchPage() {
   const [expandedFaqs, setExpandedFaqs] = useState({});
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    if (!("IntersectionObserver" in window)) return undefined;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+
+    document.documentElement.classList.add("motion-ready");
+    document.querySelectorAll(".reveal-on-scroll").forEach((element) => observer.observe(element));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
+
   return (
-    <div className="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between" style={{ backgroundColor: "#f2fbff", backgroundImage: "radial-gradient(circle at 50% 0%, rgba(26, 77, 92, 0.08) 0%, transparent 60%), linear-gradient(to right, rgba(26, 77, 92, 0.04) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.04) 1px, transparent 1px)", backgroundSize: "100% 100%, 32px 32px, 32px 32px" }}>
-      <header className="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4"><div className="flex items-center gap-3 shrink-0"><img src="/pomas-logo.png" alt="POMAS logo" className="w-10 h-10 rounded-xl object-contain shrink-0" width="40" height="40" /><div className="flex flex-col"><div className="flex items-center gap-2"><span className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">POMAS</span><span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-micro-eyebrow text-micro-eyebrow uppercase">Research Stage</span></div><span className="hidden sm:block font-body-sm text-body-sm text-on-surface-variant font-normal leading-tight">Poultry Management System</span></div></div><nav className={menuOpen ? "absolute top-20 left-0 right-0 z-50 flex flex-col items-stretch gap-1 bg-surface/95 p-4 shadow-lg backdrop-blur-xl lg:static lg:flex lg:flex-row lg:items-center lg:bg-transparent lg:p-0 lg:shadow-none" : "hidden lg:flex items-center gap-1"} data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" className="px-3 py-2 transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" href="#research-areas" onClick={() => setMenuOpen(false)}>Research Topics</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#approach-vision" onClick={() => setMenuOpen(false)}>Our Vision</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#our-approach" onClick={() => setMenuOpen(false)}>Our Approach</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#about-pomas" onClick={() => setMenuOpen(false)}>About POMAS</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a></nav><div className="flex items-center gap-2 sm:gap-3 shrink-0"><a className="inline-flex min-w-0 items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-[0_1px_8px_rgba(0,0,0,0.06)]" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank"><Icon name="assignment" className="text-[18px]" /><span className="hidden sm:inline">Take the Farmer Survey</span><span className="sm:hidden">Survey</span></a><button aria-label={menuOpen ? "Close mobile menu" : "Open mobile menu"} onClick={() => setMenuOpen(open => !open)} className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><Icon name={menuOpen ? "close" : "menu"} className="text-[24px]" /></button></div></div></header><main className="w-full pt-20 bg-surface flex-grow"><div className="flex flex-col w-full">
+    <div className="site-grid-shell bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between">
+      <header className="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/50 shadow-none"><div className="h-20 max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4"><div className="flex items-center gap-3 shrink-0"><img src="/pomas-logo.png" alt="POMAS logo" className="w-10 h-10 rounded-xl object-contain shrink-0" width="40" height="40" /><div className="flex flex-col"><div className="flex items-center gap-2"><span className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">POMAS</span><span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-micro-eyebrow text-micro-eyebrow uppercase">Research Stage</span></div><span className="hidden sm:block font-body-sm text-body-sm text-on-surface-variant font-normal leading-tight">Poultry Management System</span></div></div><nav className={menuOpen ? "absolute top-20 left-0 right-0 z-50 flex flex-col items-stretch gap-1 bg-surface/95 p-4 shadow-lg backdrop-blur-sm lg:static lg:flex lg:flex-row lg:items-center lg:bg-transparent lg:p-0 lg:shadow-none" : "hidden lg:flex items-center gap-1"} data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" className="px-3 py-2 transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" href="#research-areas" onClick={() => setMenuOpen(false)}>Research Topics</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#approach-vision" onClick={() => setMenuOpen(false)}>Our Vision</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#our-approach" onClick={() => setMenuOpen(false)}>Our Approach</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#about-pomas" onClick={() => setMenuOpen(false)}>About POMAS</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a></nav><div className="flex items-center gap-2 sm:gap-3 shrink-0"><a className="inline-flex min-w-0 items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-[0_1px_8px_rgba(0,0,0,0.06)]" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank"><Icon name="assignment" className="text-[18px]" /><span className="hidden sm:inline">Take the Farmer Survey</span><span className="sm:hidden">Survey</span></a><button aria-label={menuOpen ? "Close mobile menu" : "Open mobile menu"} onClick={() => setMenuOpen(open => !open)} className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><Icon name={menuOpen ? "close" : "menu"} className="text-[24px]" /></button></div></div></header><main className="w-full pt-20 bg-surface flex-grow"><div className="flex flex-col w-full">
       
-      <section className="w-full py-12 md:py-20 lg:py-24 bg-surface relative"><div className="absolute inset-0 pointer-events-none z-0" style={{backgroundImage: "linear-gradient(to right, rgba(26, 77, 92, 0.07) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.07) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(75% 70% at 50% 30%, rgb(0, 0, 0) 30%, transparent 85%)"}}></div>
+      <section className="hero-grid-section w-full py-12 md:py-20 lg:py-24 bg-surface relative"><div className="grid-overlay hero-grid-overlay" aria-hidden="true"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
@@ -46,7 +67,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="rounded-2xl bg-primary text-on-primary p-7 sm:p-9 shadow-lg flex flex-col gap-6">
+      <div className="rounded-2xl bg-primary text-on-primary p-7 sm:p-9 border border-white/10 flex flex-col gap-6">
       <div className="flex items-center justify-between gap-3">
         <span className="font-label-caps text-label-caps uppercase tracking-wider text-on-primary-container">Early field feedback</span>
         <span className="rounded-full bg-primary-container px-3 py-1 font-body-sm text-body-sm text-on-primary">Research snapshot</span>
@@ -106,7 +127,7 @@ export default function ResearchPage() {
       </div>
       </section>
       
-      <section className="w-full py-16 md:py-24 bg-surface relative scroll-mt-20" id="research-areas"><div className="absolute inset-0 pointer-events-none z-0" style={{backgroundImage: "linear-gradient(to right, rgba(26, 77, 92, 0.05) 1px, transparent 1px), linear-gradient(rgba(26, 77, 92, 0.05) 1px, transparent 1px)", backgroundSize: "32px 32px", maskImage: "radial-gradient(80% 65% at 50% 40%, rgb(0, 0, 0) 20%, transparent 90%)"}}></div>
+      <section className="research-grid-section w-full py-16 md:py-24 bg-surface relative scroll-mt-20" id="research-areas"><div className="grid-overlay research-grid-overlay" aria-hidden="true"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12 relative">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div className="flex flex-col gap-3 max-w-2xl">
@@ -123,9 +144,9 @@ export default function ResearchPage() {
       <span>Expandable Discovery Modules</span>
       </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="research-topic-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="edit_note" className="text-[20px]" />
@@ -151,7 +172,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="shopping_bag" className="text-[20px]" />
@@ -177,7 +198,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="warning" className="text-[20px]" />
@@ -203,7 +224,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="vaccines" className="text-[20px]" />
@@ -229,7 +250,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="trending_up" className="text-[20px]" />
@@ -255,7 +276,7 @@ export default function ResearchPage() {
       </div>
       </div>
       
-      <div className="flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200 hover:shadow-md">
+      <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
       <div className="w-10 h-10 rounded-xl bg-primary-container text-secondary-container flex items-center justify-center">
       <Icon name="payments" className="text-[20px]" />
@@ -502,7 +523,7 @@ export default function ResearchPage() {
       </div>
       </section>
       
-      <section className="w-full py-16 md:py-24 bg-primary text-on-primary scroll-mt-20" id="farmer-survey">
+      <section className="survey-grid-section w-full py-16 md:py-24 bg-primary text-on-primary scroll-mt-20" id="farmer-survey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-secondary-container font-label-caps text-label-caps uppercase">
