@@ -12,6 +12,11 @@ const fail = (message) => { throw new Error(message); };
 
   try {
     const page = await browser.newPage();
+    const runtimeErrors = [];
+    const failedRequests = [];
+    page.on("pageerror", (error) => runtimeErrors.push(error.message));
+    page.on("console", (message) => { if (message.type() === "error") runtimeErrors.push(message.text()); });
+    page.on("requestfailed", (request) => failedRequests.push({ url: request.url(), error: request.failure()?.errorText }));
     page.on("request", (request) => {
       const url = new URL(request.url());
       if (url.origin !== new URL(baseUrl).origin) externalRequests.add(url.origin);
@@ -19,7 +24,19 @@ const fail = (message) => { throw new Error(message); };
 
     await page.setViewport({ width: 1280, height: 900 });
     await page.goto(`${baseUrl}/research.html`, { waitUntil: "domcontentloaded" });
-    await page.waitForSelector(".research-topic-grid", { timeout: 15000 });
+    try {
+      await page.waitForSelector(".research-topic-grid", { timeout: 15000 });
+    } catch (error) {
+      const diagnostics = await page.evaluate(() => ({
+        title: document.title,
+        url: location.href,
+        researchRoot: document.getElementById("research-root")?.innerHTML.slice(0, 1000) ?? "missing root",
+        bodyText: document.body.innerText.slice(0, 500),
+        scripts: [...document.scripts].map((script) => script.src || "inline")
+      }));
+      console.error(JSON.stringify({ diagnostics, runtimeErrors, failedRequests }, null, 2));
+      throw error;
+    }
 
     const layoutResults = [];
     for (const width of [1280, 800, 500]) {
