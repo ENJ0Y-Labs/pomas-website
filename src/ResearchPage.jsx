@@ -101,7 +101,7 @@ export default function ResearchPage() {
       </div>
       <div>
         <h2 className="font-headline-lg text-headline-lg text-on-primary mb-3">Farm records do not all live in the same place.</h2>
-        <p className="font-body-md text-body-md text-on-primary-container leading-relaxed">Across the first three responses, notebooks and Excel were each mentioned by 3/3 respondents; phone notes and a farm app were each mentioned by 1/3. This is an early sample, not an industry-wide estimate.</p>
+        <p className="font-body-md text-body-md text-on-primary-container leading-relaxed">This small early sample helps shape follow-up questions, but it is not large enough to represent the wider poultry industry.</p>
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Notebooks</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">3 of 3 respondents</p></div>
