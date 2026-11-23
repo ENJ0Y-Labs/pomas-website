@@ -63,7 +63,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   opacity: 0.06;
   background-image:
@@ -71,6 +71,11 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
     linear-gradient(to right, #fff 1px, transparent 1px),
     linear-gradient(to bottom, #fff 1px, transparent 1px);
   background-size: var(--grid) var(--grid);
+}
+
+.survey-grid-section > .max-w-7xl {
+  position: relative;
+  z-index: 1;
 }
 
 .research-topic-grid {
@@ -140,13 +145,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
   max-width: 13ch;
 }
 
-.reveal-on-scroll {
+.motion-ready .reveal-on-scroll {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 420ms ease, transform 420ms ease;
 }
 
-.reveal-on-scroll.is-visible {
+.motion-ready .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -192,8 +197,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
 
 @media (prefers-reduced-motion: reduce) {
   .research-topic-card,
-  .reveal-on-scroll,
-  .reveal-on-scroll.is-visible {
+  .motion-ready .reveal-on-scroll,
+  .motion-ready .reveal-on-scroll.is-visible {
     opacity: 1;
     transform: none;
     transition: none;
