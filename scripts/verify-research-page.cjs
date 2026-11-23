@@ -118,7 +118,7 @@ const fail = (message) => { throw new Error(message); };
     if (!menuButton) fail("Mobile menu button not found");
     await menuButton.click();
     await page.waitForFunction(() => document.querySelector('button[aria-controls="mobile-navigation"]').getAttribute("aria-expanded") === "true");
-    const mobileLinks = await page.$eval("#mobile-navigation a[href]", (links) => links.length);
+    const mobileLinks = await page.$$eval("#mobile-navigation a[href]", (links) => links.length);
     if (mobileLinks !== 5) fail(`Expected five mobile navigation links, found ${mobileLinks}`);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.querySelector('button[aria-controls="mobile-navigation"]').getAttribute("aria-expanded") === "false");
