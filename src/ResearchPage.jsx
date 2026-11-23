@@ -525,7 +525,7 @@ export default function ResearchPage() {
       <div className="pt-2">
       <a className="inline-flex items-center gap-2 text-primary font-headline-sm text-headline-sm hover:text-secondary transition-colors" href="mailto:research@pomas.ng">
       <Icon name="mail" className="text-[20px]" />
-      <span>Contact {{FOUNDER_NAME}}: research@pomas.ng</span>
+      <span>Contact {"{{FOUNDER_NAME}}"}: research@pomas.ng</span>
       </a>
       <a className="inline-flex items-center gap-2 text-primary font-headline-sm text-headline-sm hover:text-secondary transition-colors" href="https://wa.me/{{WHATSAPP_NUMBER}}" target="_blank" rel="noopener noreferrer"><Icon name="call" className="text-[20px]" /><span>Message us on WhatsApp</span></a>
       </div>
