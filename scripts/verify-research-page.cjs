@@ -54,12 +54,16 @@ const fail = (message) => { throw new Error(message); };
           documentWidth: document.documentElement.scrollWidth,
           bodyWidth: document.body.scrollWidth,
           columns,
-          cardWidths: cards.map((card) => Math.round(card.getBoundingClientRect().width * 100) / 100)
+          cardWidths: cards.map((card) => Math.round(card.getBoundingClientRect().width * 100) / 100),
+          overflowElements: [...document.querySelectorAll("body *")].map((element) => {
+            const rect = element.getBoundingClientRect();
+            return { tag: element.tagName, className: typeof element.className === "string" ? element.className : "", text: (element.innerText || "").slice(0, 90), left: Math.round(rect.left), right: Math.round(rect.right), width: Math.round(rect.width), scrollWidth: element.scrollWidth };
+          }).filter((element) => element.right > window.innerWidth + 1 || element.left < -1).sort((a, b) => b.right - a.right).slice(0, 12)
         };
       });
 
       if (result.documentWidth > width || result.bodyWidth > width) {
-        fail(`Horizontal overflow at ${width}px: document=${result.documentWidth}, body=${result.bodyWidth}`);
+        fail(`Horizontal overflow at ${width}px: document=${result.documentWidth}, body=${result.bodyWidth}, elements=${JSON.stringify(result.overflowElements)}`);
       }
       if (!result.columns.length || result.columns.some((value) => value <= 0)) {
         fail(`Zero or missing grid tracks at ${width}px: ${JSON.stringify(result.columns)}`);
