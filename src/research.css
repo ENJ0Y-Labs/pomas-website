@@ -32,6 +32,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: var(--grid) var(--grid), var(--grid) var(--grid), var(--grid) var(--grid);
+  background-position: calc(var(--grid) / -2) calc(var(--grid) / -2), 0 0, 0 0;
 }
 
 .grid-overlay {
@@ -44,6 +45,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
     linear-gradient(to right, rgba(26, 77, 92, 0.045) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(26, 77, 92, 0.045) 1px, transparent 1px);
   background-size: var(--grid) var(--grid);
+  background-position: calc(var(--grid) / -2) calc(var(--grid) / -2), 0 0, 0 0;
   mask-image: radial-gradient(78% 72% at 50% 34%, #000 20%, transparent 88%);
 }
 
@@ -71,6 +73,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
     linear-gradient(to right, #fff 1px, transparent 1px),
     linear-gradient(to bottom, #fff 1px, transparent 1px);
   background-size: var(--grid) var(--grid);
+  background-position: calc(var(--grid) / -2) calc(var(--grid) / -2), 0 0, 0 0;
 }
 
 .survey-grid-section > .max-w-7xl {
@@ -81,7 +84,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
 .research-topic-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: row;
   gap: var(--grid);
+  width: 100%;
+  min-width: 0;
 }
 
 .research-topic-card {
@@ -128,10 +134,12 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
   border-bottom: 1px solid rgba(26, 77, 92, 0.28);
 }
 
-.research-topic-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(26, 77, 92, 0.34);
-  background: rgba(255, 255, 255, 0.9);
+@media (hover: hover) {
+  .research-topic-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(26, 77, 92, 0.34);
+    background: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .research-topic-card .font-micro-eyebrow {
@@ -157,15 +165,20 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
 }
 
 @media (max-width: 1023px) {
+  .research-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .research-topic-card,
   .research-topic-card:nth-child(1),
   .research-topic-card:nth-child(2),
   .research-topic-card:nth-child(6) {
-    grid-column: span 6;
+    grid-column: span 1;
   }
 
   .research-topic-card:nth-child(6) {
-    grid-column: span 12;
+    grid-column: 1 / -1;
   }
 }
 
@@ -176,6 +189,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
     background-image:
       linear-gradient(to right, rgba(26, 77, 92, 0.025) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(26, 77, 92, 0.025) 1px, transparent 1px);
+    background-position: 0 0, 0 0;
   }
 
   .research-topic-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
@@ -191,7 +205,14 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
 
   .grid-overlay {
     background-size: var(--grid) var(--grid);
+    background-position: calc(var(--grid) / -2) calc(var(--grid) / -2), 0 0, 0 0;
     mask-image: radial-gradient(90% 58% at 50% 25%, #000 8%, transparent 82%);
+  }
+
+  .site-grid-shell main p,
+  .site-grid-shell main li {
+    font-size: 16px;
+    line-height: 1.65;
   }
 }
 
