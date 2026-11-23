@@ -96,13 +96,14 @@ const fail = (message) => { throw new Error(message); };
           key: `${element.tagName}|${element.getAttribute("href") || element.getAttribute("aria-label") || element.textContent.trim()}`,
           focusVisible: element.matches(":focus-visible"),
           outlineStyle: style.outlineStyle,
-          outlineWidth: style.outlineWidth
+          outlineWidth: style.outlineWidth,
+          boxShadow: style.boxShadow
         };
       });
       if (!state) continue;
       if (focused.has(state.key)) break;
       focused.add(state.key);
-      if (!state.focusVisible || state.outlineStyle === "none" || Number.parseFloat(state.outlineWidth) <= 0) {
+      if (!state.focusVisible || ((state.outlineStyle === "none" || Number.parseFloat(state.outlineWidth) <= 0) && state.boxShadow === "none")) {
         fail(`Missing visible keyboard focus ring: ${state.key} (${JSON.stringify(state)})`);
       }
     }
