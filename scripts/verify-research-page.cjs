@@ -57,8 +57,8 @@ const fail = (message) => { throw new Error(message); };
           cardWidths: cards.map((card) => Math.round(card.getBoundingClientRect().width * 100) / 100),
           overflowElements: [...document.querySelectorAll("body *")].map((element) => {
             const rect = element.getBoundingClientRect();
-            return { tag: element.tagName, className: typeof element.className === "string" ? element.className : "", text: (element.innerText || "").slice(0, 90), left: Math.round(rect.left), right: Math.round(rect.right), width: Math.round(rect.width), scrollWidth: element.scrollWidth };
-          }).filter((element) => element.right > window.innerWidth + 1 || element.left < -1).sort((a, b) => b.right - a.right).slice(0, 12)
+            return { tag: element.tagName, className: typeof element.className === "string" ? element.className : "", text: (element.innerText || "").slice(0, 90), left: Math.round(rect.left), right: Math.round(rect.right), width: Math.round(rect.width), scrollWidth: element.scrollWidth, clientWidth: element.clientWidth, overflowX: getComputedStyle(element).overflowX };
+          }).filter((element) => element.right > window.innerWidth + 1 || element.left < -1 || element.scrollWidth > element.width + 1).sort((a, b) => Math.max(b.right - window.innerWidth, b.scrollWidth - b.width) - Math.max(a.right - window.innerWidth, a.scrollWidth - a.width)).slice(0, 20)
         };
       });
 
