@@ -93,7 +93,8 @@ const fail = (message) => { throw new Error(message); };
         if (!(element instanceof HTMLElement) || !element.matches("a[href], button:not([disabled])")) return null;
         const style = getComputedStyle(element);
         return {
-          key: `${element.tagName}|${element.getAttribute("href") || element.getAttribute("aria-label") || element.textContent.trim()}`,
+          key: [...document.querySelectorAll("a[href], button:not([disabled])")].indexOf(element),
+          label: `${element.tagName}|${element.getAttribute("href") || element.getAttribute("aria-label") || element.textContent.trim()}`,
           focusVisible: element.matches(":focus-visible"),
           outlineStyle: style.outlineStyle,
           outlineWidth: style.outlineWidth,
