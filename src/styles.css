@@ -54,3 +54,68 @@
 :root[data-theme="dark"] .screenshot-placeholder{background:#1a2924}
 :root[data-theme="dark"] .capture-window{background:#f8faf7}
 @media(max-width:760px){.screenshot-grid{grid-template-columns:1fr}.screenshot-placeholder{height:190px}}
+
+
+/* POMAS visual direction: design-sample.html + ENJ Signature Grid */
+:root{
+  --ink:#0e1e23;
+  --muted:#52666d;
+  --teal:#003643;
+  --teal-dark:#09252d;
+  --gold:#fdbb24;
+  --paper:#f2fbff;
+  --white:#ffffff;
+  --line:#dce9ee;
+  --soft:#e5f6fd;
+  --radius:16px;
+  --shadow:0 20px 55px rgba(0,54,67,.09);
+}
+body{background-color:var(--paper);color:var(--ink)}
+.site-header{background:rgba(242,251,255,.92);border-bottom-color:rgba(26,77,92,.09);backdrop-filter:blur(18px)}
+.main-nav a{color:#52666d}
+.main-nav a:hover,.main-nav a:focus-visible{color:var(--teal)}
+.hero{background-color:#f2fbff;color:var(--ink);background-image:radial-gradient(circle at 78% 18%,rgba(26,77,92,.075),transparent 36%),linear-gradient(to right,rgba(26,77,92,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(26,77,92,.045) 1px,transparent 1px);background-size:100% 100%,32px 32px,32px 32px}
+.hero-grain{opacity:.12}
+.hero h1,.hero-copy h1{color:var(--ink)}
+.hero h1 em,.hero-copy h1 em{color:var(--teal)}
+.hero-description{color:#52666d}
+.hero-tag{background:#e5f6fd;color:#003643;border-color:#d4eaf2}
+.hero-proof{color:#52666d}
+.hero-bottom-line{border-color:#dce9ee;color:#52666d}
+.trust-strip{background:#e5f6fd;border-color:#d6e9ef}
+.intro-section,.docs-section,.faq-section{background-color:#f2fbff;background-image:linear-gradient(to right,rgba(26,77,92,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(26,77,92,.035) 1px,transparent 1px);background-size:32px 32px}
+.features-section,.tour-section{background-color:#eaf6fb;background-image:linear-gradient(to right,rgba(26,77,92,.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(26,77,92,.03) 1px,transparent 1px);background-size:32px 32px}
+.workflow-section,.feedback-section{background-color:#e5f6fd;background-image:linear-gradient(to right,rgba(26,77,92,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(26,77,92,.035) 1px,transparent 1px);background-size:32px 32px}
+.feature-card,.doc-card,.feedback-form,.workflow-steps{border-color:#dce9ee;box-shadow:0 10px 30px rgba(0,54,67,.045)}
+.feature-card{background:rgba(255,255,255,.92)}
+.doc-card{background:rgba(255,255,255,.94)}
+.feature-icon,.trust-icon,.workflow-symbol,.feedback-point-icon{background:#e5f6fd;color:#003643}
+.section-heading h2 em,.intro-grid h2 em,.workflow-copy h2 em,.tour-copy h2 em,.faq-layout h2 em{color:#1a4d5c}
+.eyebrow{color:#8a650b}
+.button-gold{background:#fdbb24;color:#271900}
+.button-gold:hover{background:#ffcf62}
+.button-primary,.nav-download{background:#003643;color:#fff}
+.button-primary:hover,.nav-download:hover{background:#1a4d5c;color:#fff}
+.closing-cta{background:#003643}
+.screenshots-section{background-color:#eaf6fb;background-image:linear-gradient(to right,rgba(26,77,92,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(26,77,92,.035) 1px,transparent 1px);background-size:32px 32px}
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .intro-section,
+:root[data-theme="dark"] .docs-section,
+:root[data-theme="dark"] .faq-section{background-color:#0b171b;background-image:linear-gradient(to right,rgba(158,206,224,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(158,206,224,.055) 1px,transparent 1px);background-size:32px 32px}
+:root[data-theme="dark"] .features-section,
+:root[data-theme="dark"] .tour-section,
+:root[data-theme="dark"] .workflow-section,
+:root[data-theme="dark"] .feedback-section,
+:root[data-theme="dark"] .screenshots-section{background-color:#101f24;background-image:linear-gradient(to right,rgba(158,206,224,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(158,206,224,.045) 1px,transparent 1px);background-size:32px 32px}
+:root[data-theme="dark"] .hero h1,:root[data-theme="dark"] .hero-copy h1{color:#eef8fb}
+:root[data-theme="dark"] .hero-description,:root[data-theme="dark"] .hero-proof{color:#b3c7ce}
+:root[data-theme="dark"] .site-header{background:rgba(11,23,27,.92);border-color:#263b42}
+:root[data-theme="dark"] .trust-strip{background:#142a31;border-color:#263b42}
+:root[data-theme="dark"] .feature-card,:root[data-theme="dark"] .doc-card{background:rgba(17,31,36,.94);border-color:#2a4149}
+:root[data-theme="dark"] .hero-tag{background:#17343d;color:#baeafc;border-color:#294b56}
+:root[data-theme="dark"] .button-primary,:root[data-theme="dark"] .nav-download{background:#1a4d5c}
+@media(max-width:760px){
+  .hero{background-size:100% 100%,28px 28px,28px 28px}
+  .intro-section,.docs-section,.faq-section,.features-section,.tour-section,.workflow-section,.feedback-section,.screenshots-section{background-size:28px 28px}
+}
