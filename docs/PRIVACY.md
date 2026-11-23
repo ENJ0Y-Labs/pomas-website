@@ -14,6 +14,10 @@ Depending on the questions answered, survey submissions may include information 
 
 Information is used to understand how poultry farms manage flocks, feed, health, production, inventory, sales, expenses and records. Contact details, if provided, may be used to arrange a research follow-up. POMAS does not sell survey responses or use them to make automated decisions about participants.
 
+## Lawful basis
+
+POMAS relies on the participant's voluntary consent to use submitted information for the research purposes described in the notice. Participation is optional. Contact details supplied for a follow-up are used for that requested follow-up. Participants may withdraw consent by contacting the research team; withdrawal does not affect processing that took place before withdrawal.
+
 ## Third-party services
 
 The survey is hosted on Google Forms. Google processes form submissions and may process technical information under its own privacy terms. This page loads the Inter typeface from Google Fonts, so the visitor's browser makes a request to Google and Google may receive technical request information such as IP address and browser details. POMAS does not control Google's independent processing.
@@ -26,7 +30,7 @@ POMAS does not sell survey responses. Access to responses should be limited to p
 
 ## Retention
 
-Identifiable responses are kept only while needed for the research and any follow-up requested by the participant. When the research purpose has ended, POMAS will delete or anonymise identifiable information unless it must be retained for a legal reason. Anonymous summaries may be kept for research reporting.
+Identifiable responses are kept while the research is active and for no more than 12 months after the research phase closes. They are then deleted or anonymised unless a legal obligation requires longer retention. Anonymous summaries may be kept for research reporting.
 
 ## Rights and choices
 
