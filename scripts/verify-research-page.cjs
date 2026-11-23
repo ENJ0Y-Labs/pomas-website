@@ -113,16 +113,17 @@ const fail = (message) => { throw new Error(message); };
     }
 
     await page.setViewport({ width: 500, height: 900 });
-    const menuButton = page.locator('button[aria-controls="mobile-navigation"]');
-    if (await menuButton.count() !== 1) fail("Mobile menu button not found");
+    const menuButtonSelector = 'button[aria-controls="mobile-navigation"]';
+    const menuButton = await page.$(menuButtonSelector);
+    if (!menuButton) fail("Mobile menu button not found");
     await menuButton.click();
     await page.waitForFunction(() => document.querySelector('button[aria-controls="mobile-navigation"]').getAttribute("aria-expanded") === "true");
-    const mobileLinks = await page.locator("#mobile-navigation a[href]").count();
+    const mobileLinks = await page.$eval("#mobile-navigation a[href]", (links) => links.length);
     if (mobileLinks !== 5) fail(`Expected five mobile navigation links, found ${mobileLinks}`);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.querySelector('button[aria-controls="mobile-navigation"]').getAttribute("aria-expanded") === "false");
     await menuButton.click();
-    await page.locator('#mobile-navigation a[href="#approach-vision"]').click();
+    await page.click('#mobile-navigation a[href="#approach-vision"]');
     await page.waitForFunction(() => document.querySelector('button[aria-controls="mobile-navigation"]').getAttribute("aria-expanded") === "false");
 
     const pageChecks = await page.evaluate(() => ({
@@ -138,7 +139,7 @@ const fail = (message) => { throw new Error(message); };
     if (pageChecks.dataPathCount !== 0) fail("Legacy data-path attribute remains");
 
     await page.goto(`${baseUrl}/privacy.html`, { waitUntil: "domcontentloaded" });
-    const privacyDraft = await page.locator("body").innerText();
+    const privacyDraft = await page.$eval("body", (body) => body.innerText);
     if (!privacyDraft.includes("Draft - review before relying on it")) fail("Privacy draft warning missing from built output");
 
     const unexpectedExternal = [...externalRequests].filter((origin) =>
