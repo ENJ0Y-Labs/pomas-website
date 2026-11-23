@@ -1,31 +1,41 @@
-# Privacy notice
+# POMAS Research Privacy Notice
 
-Last reviewed: 11 November 2026
+Last updated: 23 November 2026
 
-## What this website collects
+## Who is responsible?
 
-The Pomas website does not currently operate its own account system, analytics platform, advertising tracker, database or feedback-submission backend. It does not intentionally collect or store personal information on a Pomas-owned server.
+The POMAS Research Initiative, a research project based in Nigeria, is responsible for the research use of information submitted to the poultry farmer survey. Privacy contact: research@pomas.ng.
 
-The site loads public release information from the GitHub API. Your browser connects to GitHub to retrieve release names, dates, installer links and asset metadata.
+## Information collected
 
-## Feedback and support
+Depending on the questions answered, survey submissions may include information about a poultry farm, its operations and record-keeping practices, together with contact details voluntarily provided for a follow-up conversation. Participants should not submit passwords, payment credentials, government identification numbers, private customer records or unrelated sensitive information.
 
-When you use the feedback form, the website prepares a draft GitHub Issue URL. You are redirected to GitHub to review and submit the report. GitHub may require you to sign in and processes the information under its own privacy policy and terms.
+## Purpose
 
-Only include information needed to explain the issue. Do not submit passwords, authentication tokens, private farm records, database files, customer details or other sensitive information. An email address is optional and should only be supplied if you want to be contacted about the report.
+Information is used to understand how poultry farms manage flocks, feed, health, production, inventory, sales, expenses and records. Contact details, if provided, may be used to arrange a research follow-up. POMAS does not sell survey responses or use them to make automated decisions about participants.
 
-## Downloads
+## Third-party services
 
-Installer downloads are hosted by GitHub Releases in the public Pomas application repository. GitHub processes the download request. The Pomas website does not receive or store the installer file.
+The survey is hosted on Google Forms. Google processes form submissions and may process technical information under its own privacy terms. This page loads the Inter typeface from Google Fonts, so the visitor's browser makes a request to Google and Google may receive technical request information such as IP address and browser details. POMAS does not control Google's independent processing.
 
-## Local theme preference
+See [Google's Privacy Policy](https://policies.google.com/privacy).
 
-The light/dark theme switch is held in page state only. This version does not save the preference in a cookie or local storage.
+## Sharing
 
-## External services
+POMAS does not sell survey responses. Access to responses should be limited to people working on the research. Google processes form data to provide Google Forms. POMAS will not publish information that identifies an individual farmer or farm without an appropriate basis and permission.
 
-Links to GitHub and the ENJ0Y portfolio open external websites. Those websites have their own privacy practices. The site does not embed third-party analytics or advertising scripts.
+## Retention
+
+Identifiable responses are kept only while needed for the research and any follow-up requested by the participant. When the research purpose has ended, POMAS will delete or anonymise identifiable information unless it must be retained for a legal reason. Anonymous summaries may be kept for research reporting.
+
+## Rights and choices
+
+Participation is voluntary. Participants may skip optional questions and contact research@pomas.ng to ask about access to, correction of or deletion of information they submitted, or to object to its use. Some requests may not be possible after information has been irreversibly anonymised. Participants may also lodge a complaint with the [Nigeria Data Protection Commission](https://ndpc.gov.ng/).
+
+## Security
+
+POMAS limits access to research responses to people who need them for the stated research. Google applies its own security measures to Google Forms. No internet service can be described as completely risk-free.
 
 ## Changes
 
-This notice should be reviewed whenever the website adds analytics, cookies, account features, a backend feedback endpoint or other data collection. Update the review date when the policy is revised.
+This notice will be updated if the survey, research purposes, tools or data practices change.
