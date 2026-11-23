@@ -30,7 +30,7 @@ const iconPaths = {
   menu:"M4 6h16M4 12h16M4 18h16"
 };
 function Icon({ name, className = "" }) {
-  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={`inline-block shrink-0 ${className}`}><path d={iconPaths[name] ?? "M12 5v14m-7-7h14"} /></svg>;
+  return <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={`inline-block shrink-0 ${className}`}><path d={iconPaths[name] ?? "M12 5v14m-7-7h14"} /></svg>;
 }
 
 export default function ResearchPage() {
