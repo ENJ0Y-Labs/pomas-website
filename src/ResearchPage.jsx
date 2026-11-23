@@ -521,7 +521,7 @@ export default function ResearchPage() {
                     We are currently in the initial validation phase, collecting early responses from poultry operators. We do not sell subscriptions, we do not claim nationwide validation, and we are taking the time to listen before deciding what to build.
                   </p>
       </div>
-      <div className="rounded-xl border border-outline-variant/50 bg-surface p-4 font-body-md text-body-md text-on-surface"><strong>{"{{FOUNDER_NAME}}"}</strong>, {"{{ONE_HONEST_LINE_ABOUT_GRANTINO_FARMS_AND_BACKGROUND}}"}</div>
+      <div className="rounded-xl border border-outline-variant/50 bg-surface p-4 font-body-md text-body-md text-on-surface break-words" style={{ overflowWrap: "anywhere" }}><strong>{"{{FOUNDER_NAME}}"}</strong>, {"{{ONE_HONEST_LINE_ABOUT_GRANTINO_FARMS_AND_BACKGROUND}}"}</div>
       <div className="pt-2">
       <a className="inline-flex items-center gap-2 text-primary font-headline-sm text-headline-sm hover:text-secondary transition-colors" href="mailto:research@pomas.ng">
       <Icon name="mail" className="text-[20px]" />
