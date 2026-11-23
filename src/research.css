@@ -12,7 +12,7 @@
 html { scroll-padding-top: 5rem; }
 body { min-width: 320px; margin: 0; }
 button, a { -webkit-tap-highlight-color: transparent; }
-button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offset: 3px; }
+button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24 !important; outline-offset: 3px !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
