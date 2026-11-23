@@ -19,7 +19,7 @@ const fail = (message) => { throw new Error(message); };
 
     await page.setViewport({ width: 1280, height: 900 });
     await page.goto(`${baseUrl}/research.html`, { waitUntil: "domcontentloaded" });
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    await page.waitForSelector(".research-topic-grid", { timeout: 15000 });
 
     const layoutResults = [];
     for (const width of [1280, 800, 500]) {
