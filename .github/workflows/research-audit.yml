@@ -1,0 +1,42 @@
+name: Research page production audit
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  production-browser-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install project dependencies
+        run: npm ci
+      - name: Build production output
+        run: npm run build
+      - name: Install headless Chrome automation
+        run: npm install --no-save --package-lock=false puppeteer@24.15.0
+      - name: Start production preview
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/pomas-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/research.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pomas-preview.log
+          exit 1
+      - name: Render and verify built pages
+        env:
+          BASE_URL: http://127.0.0.1:4173
+        run: node scripts/verify-research-page.cjs
