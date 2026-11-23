@@ -377,7 +377,7 @@ export default function ResearchPage() {
                         Can early production dips and feed anomalies be flagged automatically?
                       </h4>
       <p className="font-body-md text-body-md text-on-surface-variant">
-                        Exploring whether changes in water intake, feed consumption or production records can help managers notice unusual patterns. No fixed warning window is assumed.
+                        Exploring whether simple warning signs in daily records could help managers notice problems earlier.
                       </p>
       </div>
       </div>
