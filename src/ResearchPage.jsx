@@ -374,9 +374,9 @@ export default function ResearchPage() {
       <div className="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
       <span className="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q1</span>
       <div>
-      <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
                         Can pen-side record keeping be streamlined so it doesn't burden farm hands?
-                      </h4>
+                      </h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
                         Investigating single-tap tally counters, voice notes in local dialects, or optical scanning of physical clipboards to eliminate manual double-entry.
                       </p>
@@ -385,9 +385,9 @@ export default function ResearchPage() {
       <div className="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
       <span className="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q2</span>
       <div>
-      <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
                         Can early production dips and feed anomalies be flagged automatically?
-                      </h4>
+                      </h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
                         Exploring whether simple warning signs in daily records could help managers notice problems earlier.
                       </p>
@@ -396,9 +396,9 @@ export default function ResearchPage() {
       <div className="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
       <span className="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q3</span>
       <div>
-      <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
                         How can batch-by-batch feed conversion and operational costs be visible in real time?
-                      </h4>
+                      </h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
                         Evaluating methods to calculate live cost-per-kg of live bird or cost-per-crate of eggs as feed prices change week-to-week.
                       </p>
@@ -407,9 +407,9 @@ export default function ResearchPage() {
       <div className="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
       <span className="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q4</span>
       <div>
-      <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
                         Can layer production curves be tracked simply to forecast feed needs and culling?
-                      </h4>
+                      </h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
                         Understanding how flock age correlates with shell quality and crate output to plan timely spent-hen sales before birds consume more than they produce.
                       </p>
@@ -418,9 +418,9 @@ export default function ResearchPage() {
       <div className="p-5 rounded-2xl bg-surface shadow-sm flex items-start gap-4">
       <span className="font-label-caps text-label-caps font-bold px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed shrink-0">Q5</span>
       <div>
-      <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
                         What lightweight tools actually serve farms with intermittent internet connectivity?
-                      </h4>
+                      </h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
                         Investigating offline-first data persistence, lightweight SMS summaries, or low-bandwidth sync architectures that thrive in rural peri-urban areas.
                       </p>
@@ -521,7 +521,7 @@ export default function ResearchPage() {
                     We are currently in the initial validation phase, collecting early responses from poultry operators. We do not sell subscriptions, we do not claim nationwide validation, and we are taking the time to listen before deciding what to build.
                   </p>
       </div>
-      <div className="rounded-xl border border-outline-variant/50 bg-surface p-4 font-body-md text-body-md text-on-surface"><strong>{"{{FOUNDER_NAME}}"}</strong><br />{"{{ONE_HONEST_LINE_ABOUT_GRANTINO_FARMS_AND_BACKGROUND}}"}</div>
+      <div className="rounded-xl border border-outline-variant/50 bg-surface p-4 font-body-md text-body-md text-on-surface"><strong>{"{{FOUNDER_NAME}}"}</strong>, {"{{ONE_HONEST_LINE_ABOUT_GRANTINO_FARMS_AND_BACKGROUND}}"}</div>
       <div className="pt-2">
       <a className="inline-flex items-center gap-2 text-primary font-headline-sm text-headline-sm hover:text-secondary transition-colors" href="mailto:research@pomas.ng">
       <Icon name="mail" className="text-[20px]" />
@@ -656,7 +656,7 @@ export default function ResearchPage() {
       <Icon name={expandedFaqs[5] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
       <div className={expandedFaqs[5] ? "px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" : "hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed"} id="faq-answer-5">
-                  Survey responses are used for POMAS research. The form is hosted by Google Forms, so Google processes submitted information under its own privacy terms. POMAS does not sell survey responses. Avoid including passwords, financial credentials or sensitive personal information. Read our <a className="underline font-semibold" href="/privacy.html">privacy notice</a> for details and contact options.
+                  We do not sell survey responses. The form is hosted by Google Forms. Read our <a className="underline font-semibold" href="/privacy.html">privacy notice</a> for details.
                 </div>
       </div>
       
