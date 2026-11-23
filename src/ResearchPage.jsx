@@ -24,8 +24,12 @@ export default function ResearchPage() {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
 
+    document.documentElement.classList.add("motion-ready");
     document.querySelectorAll(".reveal-on-scroll").forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
   }, []);
 
   return (
