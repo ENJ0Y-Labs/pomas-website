@@ -210,7 +210,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid #fdbb24; outline-offs
   }
 
   .site-grid-shell main p,
-  .site-grid-shell main li {
+  .site-grid-shell main li,
+  .research-topic-card .font-body-md,
+  .research-topic-card .font-body-sm {
     font-size: 16px;
     line-height: 1.65;
   }
