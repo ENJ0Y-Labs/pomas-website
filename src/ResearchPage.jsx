@@ -30,7 +30,7 @@ const iconPaths = {
   menu:"M4 6h16M4 12h16M4 18h16"
 };
 function Icon({ name, className = "" }) {
-  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={`inline-block shrink-0 ${className}`}><path d={iconPaths[name] ?? "M12 5v14m-7-7h14"} />{name === "payments" ? <text x="12" y="16" textAnchor="middle" fontSize="7" fill="currentColor" stroke="none">₦</text> : null}</svg>;
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={`inline-block shrink-0 ${className}`}><path d={iconPaths[name] ?? "M12 5v14m-7-7h14"} /></svg>;
 }
 
 export default function ResearchPage() {
@@ -523,15 +523,15 @@ export default function ResearchPage() {
       <div className="space-y-4 font-body-md text-body-md text-on-surface-variant">
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>No Commercial Push:</strong> We are researchers and engineers, not salespeople pushing enterprise SaaS agreements.</span>
+      <span><strong>No Commercial Push:</strong> No product is being sold and no payment is requested during this research phase.</span>
       </div>
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>Confidential Feedback:</strong> Your specific operational numbers, bird counts, and veterinary notes are never sold or shared.</span>
+      <span><strong>Confidential Feedback:</strong> POMAS does not sell survey responses. Access to research responses is limited to people working on the research; Google separately processes form data under its own privacy terms. See the privacy notice for details.</span>
       </div>
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>Direct Co-Design:</strong> Farmers who participate have early direct input into wireframes and feature validation.</span>
+      <span><strong>Direct Co-Design:</strong> Farmer feedback may inform future prototypes and feature validation; participation does not guarantee that a suggested feature will be built.</span>
       </div>
       </div>
       <div className="p-4 rounded-xl bg-surface-container font-body-sm text-body-sm text-on-surface-variant">
