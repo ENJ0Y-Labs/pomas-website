@@ -1,9 +1,36 @@
 import { useEffect, useState } from "react";
 
-const iconGlyphs = {"assignment":"▤","person":"●","open_in_new":"↗","arrow_downward":"↓","verified_user":"✓","info":"i","touch_app":"⌁","edit_note":"✎","shopping_bag":"▱","warning":"!","vaccines":"✚","trending_up":"↗","payments":"₦","lightbulb":"✦","record_voice_over":"◖","analytics":"▥","terminal":"⌘","mail":"✉","check_circle":"✓","timer":"◷","agriculture":"⌂","call":"☎","arrow_forward":"→","expand_less":"⌃","expand_more":"⌄","close":"×","menu":"☰"};
-
+const iconPaths = {
+  assignment:"M7 3h10a2 2 0 0 1 2 2v14H5V5a2 2 0 0 1 2-2Zm2 5h6M9 12h6M9 15h4",
+  person:"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0",
+  open_in_new:"M13 5h6v6m0-6-9 9M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5",
+  arrow_downward:"M12 4v15m-6-6 6 6 6-6",
+  verified_user:"M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Zm-3-11 2 2 4-4",
+  info:"M12 11v6m0-10h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  touch_app:"M8 11V5a2 2 0 0 1 4 0v6-2a2 2 0 0 1 4 0v3-1a2 2 0 0 1 4 0v5c0 4-3 7-7 7h-1c-2 0-3-1-4-2l-4-5a2 2 0 0 1 3-3l2 2",
+  edit_note:"M4 20h4l11-11a2 2 0 0 0-4-4L4 16v4Zm9-13 4 4M4 4h6M4 8h4",
+  shopping_bag:"M5 8h14l1 13H4L5 8Zm4 0V6a3 3 0 0 1 6 0v2",
+  warning:"m12 3 10 18H2L12 3Zm0 6v5m0 3h.01",
+  vaccines:"M8 3v5m-3-2h6m3-3 7 7m-2-2-7 7m-3-3 7 7M5 12l7 7",
+  trending_up:"m3 17 6-6 4 4 8-9m-6 0h6v6",
+  payments:"M3 7h18v12H3zM3 10h18m-13 5h4",
+  lightbulb:"M9 18h6m-5 4h4m-5-7a6 6 0 1 1 6 0c-1 1-1 2-1 3h-4c0-1 0-2-1-3Z",
+  record_voice_over:"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0m2-13a5 5 0 0 1 0 8m-3-6a2 2 0 0 1 0 4",
+  analytics:"M4 19V5m0 14h17M8 16v-5m5 5V7m5 9v-8",
+  terminal:"m5 7 5 5-5 5m7 0h7",
+  mail:"M3 5h18v14H3z m0 2 9 7 9-7",
+  check_circle:"m7 12 3 3 7-7m5 4a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z",
+  timer:"M10 2h4m-2 4v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  agriculture:"M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6",
+  call:"M7 3h3l2 5-2 2a15 15 0 0 0 4 4l2-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z",
+  arrow_forward:"M4 12h16m-6-6 6 6-6 6",
+  expand_less:"m6 15 6-6 6 6",
+  expand_more:"m6 9 6 6 6-6",
+  close:"m6 6 12 12M18 6 6 18",
+  menu:"M4 6h16M4 12h16M4 18h16"
+};
 function Icon({ name, className = "" }) {
-  return <span aria-hidden="true" className={`inline-flex items-center justify-center leading-none ${className}`}>{iconGlyphs[name] ?? "•"}</span>;
+  return <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={`inline-block shrink-0 ${className}`}><path d={iconPaths[name] ?? "M12 5v14m-7-7h14"} /></svg>;
 }
 
 export default function ResearchPage() {
@@ -34,7 +61,7 @@ export default function ResearchPage() {
 
   return (
     <div className="site-grid-shell bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between">
-      <header className="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/50 shadow-none"><div className="h-20 max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4"><div className="flex items-center gap-3 shrink-0"><img src="/pomas-logo.png" alt="POMAS logo" className="w-10 h-10 rounded-xl object-contain shrink-0" width="40" height="40" /><div className="flex flex-col"><div className="flex items-center gap-2"><span className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">POMAS</span><span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-micro-eyebrow text-micro-eyebrow uppercase">Research Stage</span></div><span className="hidden sm:block font-body-sm text-body-sm text-on-surface-variant font-normal leading-tight">Poultry Management System</span></div></div><nav className={menuOpen ? "absolute top-20 left-0 right-0 z-50 flex flex-col items-stretch gap-1 bg-surface/95 p-4 shadow-lg backdrop-blur-sm lg:static lg:flex lg:flex-row lg:items-center lg:bg-transparent lg:p-0 lg:shadow-none" : "hidden lg:flex items-center gap-1"} data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" className="px-3 py-2 transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" href="#research-areas" onClick={() => setMenuOpen(false)}>Research Topics</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#approach-vision" onClick={() => setMenuOpen(false)}>Our Vision</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#our-approach" onClick={() => setMenuOpen(false)}>Our Approach</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#about-pomas" onClick={() => setMenuOpen(false)}>About POMAS</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a></nav><div className="flex items-center gap-2 sm:gap-3 shrink-0"><a className="inline-flex min-w-0 items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-[0_1px_8px_rgba(0,0,0,0.06)]" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank"><Icon name="assignment" className="text-[18px]" /><span className="hidden sm:inline">Take the Farmer Survey</span><span className="sm:hidden">Survey</span></a><button aria-label={menuOpen ? "Close mobile menu" : "Open mobile menu"} onClick={() => setMenuOpen(open => !open)} className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><Icon name={menuOpen ? "close" : "menu"} className="text-[24px]" /></button></div></div></header><main className="w-full pt-20 bg-surface flex-grow"><div className="flex flex-col w-full">
+      <header className="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/50 shadow-none"><div className="h-20 max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4"><div className="flex items-center gap-3 shrink-0"><img src="/pomas-logo.png" alt="POMAS logo" className="w-10 h-10 rounded-xl object-contain shrink-0" width="40" height="40" /><div className="flex flex-col"><div className="flex items-center gap-2"><span className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">POMAS</span><span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-micro-eyebrow text-micro-eyebrow uppercase">Research Stage</span></div><span className="hidden sm:block font-body-sm text-body-sm text-on-surface-variant font-normal leading-tight">Poultry Management System</span></div></div><nav id="mobile-navigation" className={menuOpen ? "absolute top-20 left-0 right-0 z-50 flex flex-col items-stretch gap-1 bg-surface/95 p-4 shadow-lg backdrop-blur-sm lg:static lg:flex lg:flex-row lg:items-center lg:bg-transparent lg:p-0 lg:shadow-none" : "hidden lg:flex items-center gap-1"} data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" className="px-3 py-2 transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg" href="#research-areas" onClick={() => setMenuOpen(false)}>Research Topics</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#approach-vision" onClick={() => setMenuOpen(false)}>Our Vision</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#our-approach" onClick={() => setMenuOpen(false)}>Our Approach</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#about-pomas" onClick={() => setMenuOpen(false)}>About POMAS</a><a className="px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a></nav><div className="flex items-center gap-2 sm:gap-3 shrink-0"><a className="inline-flex min-w-0 items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm hover:bg-secondary-fixed transition-all shadow-[0_1px_8px_rgba(0,0,0,0.06)]" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank"><Icon name="assignment" className="text-[18px]" /><span className="hidden sm:inline">Take the Farmer Survey</span><span className="sm:hidden">Survey</span></a><button aria-label={menuOpen ? "Close mobile menu" : "Open mobile menu"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(open => !open)} className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><Icon name={menuOpen ? "close" : "menu"} className="text-[24px]" /></button></div></div></header><main className="w-full pt-20 bg-surface flex-grow"><div className="flex flex-col w-full">
       
       <section className="hero-grid-section w-full py-12 md:py-20 lg:py-24 bg-surface relative"><div className="grid-overlay hero-grid-overlay" aria-hidden="true"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -74,13 +101,13 @@ export default function ResearchPage() {
       </div>
       <div>
         <h2 className="font-headline-lg text-headline-lg text-on-primary mb-3">Farm records do not all live in the same place.</h2>
-        <p className="font-body-md text-body-md text-on-primary-container leading-relaxed">The first three survey responses mention a mix of notebooks, spreadsheets, phone notes and a farm app. We are keeping the research open rather than assuming one workflow represents every farm.</p>
+        <p className="font-body-md text-body-md text-on-primary-container leading-relaxed">This small early sample helps shape follow-up questions, but it is not large enough to represent the wider poultry industry.</p>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Notebooks</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">Handwritten records</p></div>
-        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Spreadsheets</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">Excel-based records</p></div>
-        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Phone notes</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">Notes kept on devices</p></div>
-        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Farm apps</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">Dedicated software tools</p></div>
+        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Notebooks</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">3 of 3 respondents</p></div>
+        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Excel</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">3 of 3 respondents</p></div>
+        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Phone notes</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">1 of 3 respondents</p></div>
+        <div className="rounded-xl bg-primary-container p-4"><span className="font-headline-sm text-headline-sm text-on-primary">Farm apps</span><p className="font-body-sm text-body-sm text-on-primary-container mt-1">1 of 3 respondents</p></div>
       </div>
     </div>
       </div>
@@ -102,18 +129,11 @@ export default function ResearchPage() {
                     Daily poultry farm management brings countless interconnected decisions: unpredictable feed price spikes, sudden mortality fluctuations, egg production drop-offs, strict medication withdrawals, and razor-thin margins.
                   </p>
       <p>
-                    Early responses already point to different record-keeping methods, including notebooks, Excel spreadsheets, phone notes and farm apps. We are investigating how these methods fit into each farm’s day-to-day work.
+                    We are investigating how records are created, updated and used during day-to-day farm work.
                   </p>
       <p>
                     We are investigating how farmers currently handle these critical operational workflows on the ground—and exploring whether technology can genuinely illuminate patterns without creating an exhausting second job of data entry.
                   </p>
-      </div>
-      <div className="rounded-2xl bg-surface p-5 shadow-sm">
-        <span className="font-label-caps text-label-caps uppercase text-secondary font-bold block mb-3">What the first responses mention</span>
-        <div className="flex flex-wrap gap-2">
-          {["Notebooks", "Excel spreadsheets", "Phone notes", "Farm apps"].map(method => <span key={method} className="rounded-full bg-surface-container px-3 py-2 font-body-sm text-body-sm text-on-surface">{method}</span>)}
-        </div>
-        <p className="font-body-sm text-body-sm text-on-surface-variant mt-3">A small early sample, not a representative industry survey.</p>
       </div>
       </div>
       <div className="lg:col-span-6">
@@ -144,7 +164,7 @@ export default function ResearchPage() {
       <span>Expandable Discovery Modules</span>
       </div>
       </div>
-      <div className="research-topic-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="research-topic-grid">
       
       <div className="research-topic-card reveal-on-scroll flex flex-col bg-surface-container-low rounded-2xl p-6 transition-all duration-200">
       <div className="flex items-center justify-between gap-4 mb-4">
@@ -219,7 +239,7 @@ export default function ResearchPage() {
       </button>
       <div className={expandedTopics[3] ? "pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2" : "hidden pt-4 mt-2 font-body-sm text-body-sm text-on-surface-variant space-y-2"} id="panel-topic-3">
       <p>• At what percentage threshold do you sound an alarm on pen mortality?</p>
-      <p>• Do you notice changes in water intake 48 hours before mortality strikes?</p>
+      <p>• Have you noticed changes in water intake before or around periods of higher mortality? If so, what did you observe?</p>
       <p>• How are necropsy findings documented and shared across team shifts?</p>
       </div>
       </div>
@@ -357,7 +377,7 @@ export default function ResearchPage() {
                         Can early production dips and feed anomalies be flagged automatically?
                       </h4>
       <p className="font-body-md text-body-md text-on-surface-variant">
-                        Exploring lightweight statistical thresholds that notify managers of water drops or consumption slows 24-48 hours before visible mortality spikes occur.
+                        Exploring whether changes in water intake, feed consumption or production records can help managers notice unusual patterns. No fixed warning window is assumed.
                       </p>
       </div>
       </div>
@@ -503,15 +523,15 @@ export default function ResearchPage() {
       <div className="space-y-4 font-body-md text-body-md text-on-surface-variant">
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>No Commercial Push:</strong> We are researchers and engineers, not salespeople pushing enterprise SaaS agreements.</span>
+      <span><strong>No Commercial Push:</strong> No product is being sold and no payment is requested during this research phase.</span>
       </div>
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>Confidential Feedback:</strong> Your specific operational numbers, bird counts, and veterinary notes are never sold or shared.</span>
+      <span><strong>Confidential Feedback:</strong> POMAS does not sell survey responses. Access to research responses is limited to people working on the research; Google separately processes form data under its own privacy terms. See the privacy notice for details.</span>
       </div>
       <div className="flex items-start gap-3">
       <Icon name="check_circle" className="text-primary text-[20px] shrink-0 mt-0.5" />
-      <span><strong>Direct Co-Design:</strong> Farmers who participate have early direct input into wireframes and feature validation.</span>
+      <span><strong>Direct Co-Design:</strong> Farmer feedback may inform future prototypes and feature validation; participation does not guarantee that a suggested feature will be built.</span>
       </div>
       </div>
       <div className="p-4 rounded-xl bg-surface-container font-body-sm text-body-sm text-on-surface-variant">
@@ -550,7 +570,7 @@ export default function ResearchPage() {
       <div className="p-4 rounded-xl bg-primary-container text-center flex flex-col items-center gap-1">
       <Icon name="call" className="text-secondary-container text-[24px]" />
       <span className="font-headline-sm text-headline-sm text-on-primary">Optional Follow-up</span>
-      <span className="font-body-sm text-body-sm text-on-primary-container">15-min direct conversation</span>
+      <span className="font-body-sm text-body-sm text-on-primary-container">WhatsApp voice notes</span>
       </div>
       </div>
       <a className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-secondary-container text-on-secondary-container font-headline-md text-headline-md hover:bg-secondary-fixed transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-secondary-fixed" href="https://forms.gle/aTcjXwnxzwvoDoEu8" rel="noopener noreferrer" target="_blank">
@@ -558,7 +578,7 @@ export default function ResearchPage() {
       <Icon name="arrow_forward" className="text-[22px]" />
       </a>
       <span className="font-body-sm text-body-sm text-on-primary-container">
-                The survey opens on Google Forms. Review the privacy notice before submitting.
+                The survey opens on Google Forms. <a className="underline underline-offset-4 hover:text-white" href="/privacy.html">Review the privacy notice</a> before submitting.
               </span>
       </div>
       </div>
@@ -576,27 +596,27 @@ export default function ResearchPage() {
       <div className="space-y-4">
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-1" aria-expanded={!!expandedFaqs[1]} onClick={() => setExpandedFaqs(current => ({ ...current, [1]: !current[1] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-1" aria-expanded={!!expandedFaqs[1]} onClick={() => setExpandedFaqs(current => ({ ...current, [1]: !current[1] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>What is POMAS?</span>
       <Icon name={expandedFaqs[1] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
       <div className={expandedFaqs[1] ? "px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" : "hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed"} id="faq-answer-1">
-                  POMAS is an early-stage agritech research initiative focused on understanding poultry farm operations and exploring practical technology solutions. We are currently in the problem discovery stage.
+                  POMAS is an early-stage poultry management software project with an existing desktop application. The current public-facing work focuses on farmer research and validating what should improve next.
                 </div>
       </div>
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-2" aria-expanded={!!expandedFaqs[2]} onClick={() => setExpandedFaqs(current => ({ ...current, [2]: !current[2] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-2" aria-expanded={!!expandedFaqs[2]} onClick={() => setExpandedFaqs(current => ({ ...current, [2]: !current[2] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>Is POMAS available to use or download?</span>
       <Icon name={expandedFaqs[2] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
       <div className={expandedFaqs[2] ? "px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" : "hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed"} id="faq-answer-2">
-                  No. POMAS is not currently an available software product, and we are not accepting registrations, downloads, or payments. We are actively conducting farmer research first.
+                  An early desktop application exists, but it is not currently offered for public download or registration. We are conducting farmer research before deciding what to release next, and we are not accepting payments.
                 </div>
       </div>
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-3" aria-expanded={!!expandedFaqs[3]} onClick={() => setExpandedFaqs(current => ({ ...current, [3]: !current[3] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-3" aria-expanded={!!expandedFaqs[3]} onClick={() => setExpandedFaqs(current => ({ ...current, [3]: !current[3] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>Who should participate in the survey?</span>
       <Icon name={expandedFaqs[3] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
@@ -606,17 +626,17 @@ export default function ResearchPage() {
       </div>
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-4" aria-expanded={!!expandedFaqs[4]} onClick={() => setExpandedFaqs(current => ({ ...current, [4]: !current[4] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-4" aria-expanded={!!expandedFaqs[4]} onClick={() => setExpandedFaqs(current => ({ ...current, [4]: !current[4] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>How long does participation take?</span>
       <Icon name={expandedFaqs[4] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
       <div className={expandedFaqs[4] ? "px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" : "hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed"} id="faq-answer-4">
-                  The initial online survey takes approximately 5 minutes. If you are open to sharing deeper insights, there is an optional 15-minute follow-up conversation.
+                  The initial online survey takes approximately 5 minutes. Optional follow-ups are planned through WhatsApp voice notes: a short text introduction first for people who do not know the research team, followed by one question per voice note.
                 </div>
       </div>
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-5" aria-expanded={!!expandedFaqs[5]} onClick={() => setExpandedFaqs(current => ({ ...current, [5]: !current[5] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-5" aria-expanded={!!expandedFaqs[5]} onClick={() => setExpandedFaqs(current => ({ ...current, [5]: !current[5] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>How will my survey responses and privacy be handled?</span>
       <Icon name={expandedFaqs[5] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
@@ -626,12 +646,12 @@ export default function ResearchPage() {
       </div>
       
       <div className="rounded-2xl bg-surface-container-low transition-all">
-      <button aria-controls="faq-answer-6" aria-expanded={!!expandedFaqs[6]} onClick={() => setExpandedFaqs(current => ({ ...current, [6]: !current[6] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary focus:outline-none" type="button">
+      <button aria-controls="faq-answer-6" aria-expanded={!!expandedFaqs[6]} onClick={() => setExpandedFaqs(current => ({ ...current, [6]: !current[6] }))} className="faq-accordion-trigger flex items-center justify-between w-full p-6 text-left font-headline-sm text-headline-sm text-primary" type="button">
       <span>Will POMAS cost money in the future?</span>
       <Icon name={expandedFaqs[6] ? "expand_less" : "expand_more"} className="transition-transform duration-200 trigger-icon" />
       </button>
       <div className={expandedFaqs[6] ? "px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed" : "hidden px-6 pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed"} id="faq-answer-6">
-                  Because we are still validating whether and what to build, no pricing model exists. Any future tools will be evaluated in collaboration with farmers to ensure practical affordability.
+                  There is no current price because POMAS is not being sold or offered for public registration. If a future release has paid features, its pricing will be decided after the product scope and farmer needs are validated and will be published before anyone is asked to pay.
                 </div>
       </div>
       </div>
