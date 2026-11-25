@@ -4,7 +4,7 @@ Last updated: 23 November 2026
 
 ## Who is responsible?
 
-The POMAS Research Initiative, a research project based in Nigeria, is responsible for the research use of information submitted to the poultry farmer survey. Privacy contact: research@pomas.ng.
+The POMAS Research Initiative, a research project based in Nigeria, is responsible for the research use of information submitted to the poultry farmer survey. Privacy contact: support.pomas@gmail.com.
 
 ## Information collected
 
@@ -34,7 +34,7 @@ Identifiable responses are kept while the research is active and for no more tha
 
 ## Rights and choices
 
-Participation is voluntary. Participants may skip optional questions and contact research@pomas.ng to ask about access to, correction of or deletion of information they submitted, or to object to its use. Some requests may not be possible after information has been irreversibly anonymised. Participants may also lodge a complaint with the [Nigeria Data Protection Commission](https://ndpc.gov.ng/).
+Participation is voluntary. Participants may skip optional questions and contact support.pomas@gmail.com to ask about access to, correction of or deletion of information they submitted, or to object to its use. Some requests may not be possible after information has been irreversibly anonymised. Participants may also lodge a complaint with the [Nigeria Data Protection Commission](https://ndpc.gov.ng/).
 
 ## Security
 
