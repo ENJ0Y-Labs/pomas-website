@@ -119,3 +119,19 @@ body{background-color:var(--paper);color:var(--ink)}
   .hero{background-size:100% 100%,28px 28px,28px 28px}
   .intro-section,.docs-section,.faq-section,.features-section,.tour-section,.workflow-section,.feedback-section,.screenshots-section{background-size:28px 28px}
 }
+
+
+/* Contact capture modal */
+.contact-modal-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:rgba(4,15,16,.68);backdrop-filter:blur(7px)}
+.contact-modal{position:relative;width:min(100%,480px);max-height:min(90vh,720px);overflow:auto;padding:34px;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:0 28px 90px rgba(0,0,0,.28)}
+.contact-modal-close{position:absolute;top:17px;right:17px;width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink)}
+.contact-modal h2{max-width:360px;margin:12px 0;font:800 clamp(27px,5vw,34px)/1.08 system-ui,sans-serif;letter-spacing:-.045em}
+.contact-modal>p{font-size:12px;line-height:1.75;color:var(--muted);margin:0 0 22px;max-width:390px}
+.contact-modal form{display:flex;flex-direction:column}
+.contact-modal input,.contact-modal select{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:7px;padding:13px;font-size:13px}
+.contact-modal .form-submit{width:100%;margin-top:22px;border:0;background:var(--teal);color:white}
+.contact-modal .form-submit:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.contact-modal .contact-modal-note{font-size:10px;line-height:1.65;margin:13px 0 0;color:var(--muted)}
+:root[data-theme="dark"] .contact-modal{background:#111a18;color:#e9eeea;border-color:#293a35}
+:root[data-theme="dark"] .contact-modal input,:root[data-theme="dark"] .contact-modal select{background:#0c1210;color:#eef3ed;border-color:#33433b}
+@media(max-width:520px){.contact-modal{padding:28px 22px 24px}.contact-modal h2{padding-right:18px}}
