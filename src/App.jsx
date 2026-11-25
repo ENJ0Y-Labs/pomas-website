@@ -308,7 +308,7 @@ function App() {
           <form onSubmit={event => {
             event.preventDefault();
             const methodLabel = contactMethod === "email" ? "Email" : "WhatsApp";
-            const message = `Hello Pomas team, I would like to receive Pomas updates.\\n\\nPreferred contact method: ${methodLabel}\\nMy contact: ${contactValue.trim()}\\n\\nPlease keep me informed about Pomas.`;
+            const message = `Hello Pomas team, I would like to receive Pomas updates.\n\nPreferred contact method: ${methodLabel}\nMy contact: ${contactValue.trim()}\n\nPlease keep me informed about Pomas.`;
             const whatsappUrl = `https://wa.me/2349020327222?text=${encodeURIComponent(message)}`;
             window.location.assign(whatsappUrl);
           }}>
