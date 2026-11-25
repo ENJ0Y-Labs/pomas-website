@@ -235,6 +235,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(0);
   const [theme, setTheme] = useState("light");
+  const [contactOpen, setContactOpen] = useState(false);
+  const [contactMethod, setContactMethod] = useState("whatsapp");
+  const [contactValue, setContactValue] = useState("");
   const nav = [["Features","#features"],["Product tour","#product"],["Screenshots","#screenshots"],["Downloads","#downloads"],["Documentation","#documentation"],["Feedback","#feedback"]];
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -295,7 +298,32 @@ function App() {
       <section className="section faq-section"><div className="section-inner faq-layout"><div><span className="eyebrow">GOOD TO KNOW</span><h2>Questions, <em>answered.</em></h2><p>Some practical details before you install.</p></div><div className="faq-list">{faqs.map(([question,answer],i) => <article className={activeFaq === i ? "faq-item expanded" : "faq-item"} key={question}><button type="button" onClick={() => setActiveFaq(activeFaq === i ? -1 : i)} aria-expanded={activeFaq === i}><span>{question}</span><b>{activeFaq === i ? "−" : "+"}</b></button>{activeFaq === i && <p>{answer}</p>}</article>)}</div></div></section>
 
       <Feedback/>
-      <section className="closing-cta"><div className="closing-cta-inner"><div><span className="eyebrow">MAKE THE RECORDS COUNT</span><h2>A clearer view of your farm starts here.</h2><p>Download Pomas and bring your farm's daily records into one place.</p></div><a className="button button-gold" href="#downloads">Get Pomas <Icon name="arrow" size={17}/></a></div></section>
+      <section className="closing-cta"><div className="closing-cta-inner"><div><span className="eyebrow">STAY IN THE LOOP</span><h2>Be among the first to hear what is next.</h2><p>Leave your preferred contact and the Pomas team will follow up with updates.</p></div><button className="button button-gold" type="button" onClick={() => setContactOpen(true)}>Get updates <Icon name="arrow" size={17}/></button></div></section>
+      {contactOpen && <div className="contact-modal-backdrop" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) setContactOpen(false); }}>
+        <section className="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+          <button className="contact-modal-close" type="button" onClick={() => setContactOpen(false)} aria-label="Close contact form"><Icon name="close" size={20}/></button>
+          <span className="eyebrow">POMAS UPDATES</span>
+          <h2 id="contact-modal-title">How should we reach you?</h2>
+          <p>Share an email address or WhatsApp number. Your details will be added to a message to the Pomas team.</p>
+          <form onSubmit={event => {
+            event.preventDefault();
+            const methodLabel = contactMethod === "email" ? "Email" : "WhatsApp";
+            const message = `Hello Pomas team, I would like to receive Pomas updates.\\n\\nPreferred contact method: ${methodLabel}\\nMy contact: ${contactValue.trim()}\\n\\nPlease keep me informed about Pomas.`;
+            const whatsappUrl = `https://wa.me/2349020327222?text=${encodeURIComponent(message)}`;
+            window.location.assign(whatsappUrl);
+          }}>
+            <label className="field-label" htmlFor="contact-method">Preferred contact method</label>
+            <select id="contact-method" value={contactMethod} onChange={event => { setContactMethod(event.target.value); setContactValue(""); }}>
+              <option value="whatsapp">WhatsApp number</option>
+              <option value="email">Email address</option>
+            </select>
+            <label className="field-label" htmlFor="contact-value">{contactMethod === "email" ? "Email address" : "WhatsApp number"}</label>
+            <input id="contact-value" type={contactMethod === "email" ? "email" : "tel"} value={contactValue} onChange={event => setContactValue(event.target.value)} placeholder={contactMethod === "email" ? "you@example.com" : "+234 800 000 0000"} autoComplete={contactMethod === "email" ? "email" : "tel"} required/>
+            <button className="button button-primary form-submit" type="submit" disabled={!contactValue.trim()}>Continue to WhatsApp <Icon name="arrow" size={18}/></button>
+          </form>
+          <p className="contact-modal-note">WhatsApp opens with your message ready. You must press Send in WhatsApp to share your contact details.</p>
+        </section>
+      </div>}
     </main>
 
     <footer className="site-footer"><div className="footer-main"><div className="footer-brand-col"><a href="#home" className="brand footer-brand"><img src="/pomas-logo.png" alt="Pomas logo"/><span>Pomas<small>POULTRY MANAGEMENT</small></span></a><p>Practical farm management software for clearer records and better-informed decisions.</p><span className="footer-local"><Icon name="shield" size={15}/> Local-first Windows application</span></div><div className="footer-links"><div><b>EXPLORE</b><a href="#features">Features</a><a href="#product">Product tour</a><a href="#downloads">Downloads</a><a href="#documentation">Documentation</a></div><div><b>SUPPORT</b><a href="#feedback">Report an issue</a><a href={`${REPO_URL}/issues`} target="_blank" rel="noreferrer">Issue tracker</a><a href={`${REPO_URL}/releases`} target="_blank" rel="noreferrer">Release notes</a><a href={`${REPO_URL}`} target="_blank" rel="noreferrer">Source repository</a><a href="/privacy.html">Privacy</a></div><div><b>ECOSYSTEM</b><a href="https://enj0y.netlify.app/" target="_blank" rel="noreferrer">Developed by ENJ0Y <Icon name="external" size={13}/></a><a href="https://github.com/ENJ0Y-Labs" target="_blank" rel="noreferrer">ENJ0Y Labs <Icon name="external" size={13}/></a></div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Pomas. Product information is subject to change.</span><span>Built for the work behind the farm.</span></div></footer>
